@@ -1,0 +1,81 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Menu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9>This column will take 12 columns</ion-col>
+      <ion-col col-3>
+        <ion-list>
+          <ion-list-header>
+            Menulist
+            <button ion-button icon-right item-right>
+                  Clear
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+          </ion-list-header>
+              <!-- <div *ngIf="items < 1" subText>
+                NO ITEM
+              </div> -->
+              <ion-card *ngFor="let order of ordersItem">
+                <ion-card-header HeaderPadding>
+                  <ion-row>
+                    <ion-col col-10 text-left>
+                      <!-- <h1>{{order.name}} : {{order.price}} ฿</h1> -->
+                    </ion-col>
+                    <ion-col col-2 text-center>
+                      <button ion-button color="danger" icon-only small (click)="deleteOrder(order._id)"><ion-icon name="md-close"></ion-icon>
+            </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <h2 fontSet>Qty. </h2>
+                      
+                      <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
+                      </button> 
+                      <!-- <span item-right>{{order.qty}}</span> -->
+                      
+                      <button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
+            </button>
+                    </ion-item>
+                    <ion-item *ngIf="order.category[0].subcate =='coffee'">
+                      <ion-label color="primary">Sweetness level</ion-label>
+                      <ion-select [(ngModel)]="order.sweetness" interface="popover">
+                
+                        <ion-option value="low">Low</ion-option>
+                        <ion-option selected value="medium">Medium</ion-option>
+                        <ion-option value="high">High</ion-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-item *ngIf="order.category[0].subcate =='coffee'">
+                      <ion-label color="primary">Amount of caffeine</ion-label>
+                      <ion-select [(ngModel)]="order.degrees" interface="popover">
+                        <ion-option value="regular">Regular</ion-option>
+                        <ion-option selected value="half">Half-caf</ion-option>
+                        <ion-option value="de">De-caf</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
