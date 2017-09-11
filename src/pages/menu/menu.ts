@@ -14,7 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'menu.html',
 })
 export class MenuPage {
-
+  public category = "Drink";
+public arr = ['1',2,'3',4,5,6,7];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
