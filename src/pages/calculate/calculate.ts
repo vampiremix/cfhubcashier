@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the OrderListPage page.
+ * Generated class for the CalculatePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-order-list',
-  templateUrl: 'order-list.html',
+  selector: 'page-calculate',
+  templateUrl: 'calculate.html',
 })
-export class OrderListPage {
-  public arr = ['1',2];
+export class CalculatePage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderListPage');
+    console.log('ionViewDidLoad CalculatePage');
   }
 
 }

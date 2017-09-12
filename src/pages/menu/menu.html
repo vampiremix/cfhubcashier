@@ -13,56 +13,57 @@
 </ion-header>
 
 
-<ion-content>
-  <ion-grid scroll="false" no-padding>
-    <ion-row>
-      <ion-col col-9 no-padding>
-        <ion-segment [(ngModel)]="category">
-          <ion-segment-button value="Drink">
-            DRINK
-          </ion-segment-button>
-          <ion-segment-button value="Dessert">
-            DESSERT
-          </ion-segment-button>
-          <ion-segment-button value="Food">
-            FOOD
-          </ion-segment-button>
-        </ion-segment>
-        <ion-scroll scrollX="true" class="scrollHeight">
-          <ion-grid [ngSwitch]="category">
-            <ion-row *ngSwitchCase="'Drink'">
-              <ion-col col-4 *ngFor="let item of arr">
-                <ion-card class="card-background-page">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
-                  />
+<ion-content no-bounce>
+  <div>
+    <ion-segment [(ngModel)]="category">
+      <ion-segment-button value="Drink" class="SegmentSize">
+        DRINK
+      </ion-segment-button>
+      <ion-segment-button value="Dessert" class="SegmentSize">
+        DESSERT
+      </ion-segment-button>
+      <ion-segment-button value="Food" class="SegmentSize">
+        FOOD
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col col-8 no-padding>
+        <ion-scroll scrollY class="scrollHeight">
+          <ion-grid [ngSwitch]="category" no-padding>
+            <ion-row *ngSwitchCase="'Drink'" no-padding>
+              <ion-col col-3 *ngFor="let item of prod_drink" no-padding>
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                  <!-- <preload-image  [src]="item.image[0].url" ></preload-image>Ç -->
+                  <img [src]="item.image[0].url" />
                   <ion-row>
-                    <ion-col col-8><span class="card-title">TEST</span></ion-col>
-                    <ion-col text-right>xxx.-</ion-col>
+                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <ion-col text-right>{{item.price}}.-</ion-col>
                   </ion-row>
                 </ion-card>
               </ion-col>
             </ion-row>
 
-            <ion-row *ngSwitchCase="'Dessert'">
-              <ion-col col-4 *ngFor="let item of arr">
-                <ion-card class="card-background-page">
-                  <img src="http://demo.tophostservices.in/ecomcake/wp-content/uploads/2017/02/france-confectionery-raspberry-cake-fruit-69817-1-300x300.jpeg"
-                  />
+            <ion-row *ngSwitchCase="'Dessert'" no-padding>
+              <ion-col col-3 *ngFor="let item of prod_dessert" no-padding>
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                  <img [src]="item.image[0].url" />
                   <ion-row>
-                    <ion-col col-8><span class="card-title">TEST</span></ion-col>
-                    <ion-col text-right>xxx.-</ion-col>
+                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <ion-col text-right>{{item.price}}.-</ion-col>
                   </ion-row>
                 </ion-card>
               </ion-col>
             </ion-row>
 
-            <ion-row *ngSwitchCase="'Food'">
-              <ion-col col-4 *ngFor="let item of arr">
-                <ion-card class="card-background-page">
-                  <img src="http://www.sleekgeek.co.za/wp-content/uploads/2016/02/lchf-banting-meal-plan.jpg" />
+            <ion-row *ngSwitchCase="'Food'" no-padding>
+              <ion-col col-3 *ngFor="let item of prod_food" no-padding>
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                  <img [src]="item.image[0].url" />
                   <ion-row>
-                    <ion-col col-8><span class="card-title">TEST</span></ion-col>
-                    <ion-col text-right>xxx.-</ion-col>
+                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <ion-col text-right>{{item.price}}.-</ion-col>
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -70,105 +71,41 @@
           </ion-grid>
         </ion-scroll>
       </ion-col>
-      <ion-col col-3>
+      <ion-col col-4 class="colListColor">
         <ion-list>
           <ion-list-header>
-            Menulist
-            <button ion-button icon-right item-right color="danger">
+            <h2>Menulist</h2>
+            <button ion-button icon-right item-right color="danger" (click)="clearList()">
                   Clear
                   <ion-icon name="trash"></ion-icon>
                 </button>
           </ion-list-header>
-          <ion-item-sliding>
-            <ion-item>
-              <ion-row align-items-center>
-                <ion-col align-self-center>
-                  <h2>Caramel Milk</h2>
-                  <p>Size : S</p>
-                  <p>Dgrees : Regular</p>
-                  <p>Sweetness : Medium</p>
-                </ion-col>
-                <ion-col text-right>
-                  55.-
-                </ion-col>
-              </ion-row>
-            </ion-item>
-            <ion-item-options side="right">
-              <button ion-button color="danger">
+          <ion-scroll scrollY class="scrollHeight2">
+            <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
+            <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
+              <ion-item>
+                <ion-row align-items-center>
+                  <ion-col align-self-center>
+                    <h2>{{ord.name}}</h2>
+                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Degrees : {{ord.degrees}}</p> -->
+                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Sweetness : {{ord.sweetness}}</p> -->
+                  </ion-col>
+                  <ion-col text-right>
+                    {{ord.price}}.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="danger" (click)="deleteOrder(ord._id)">
                   <ion-icon name="md-close-circle"></ion-icon>
                 </button>
-            </ion-item-options>
-          </ion-item-sliding>
-          <ion-item-sliding>
-            <ion-item>
-              <ion-row align-items-center>
-                <ion-col align-self-center>
-                  <h2>Caramel Milk</h2>
-                  <p>Size : S</p>
-                  <p>Dgrees : Regular</p>
-                  <p>Sweetness : Medium</p>
-                </ion-col>
-                <ion-col text-right>
-                  55.-
-                </ion-col>
-              </ion-row>
-            </ion-item>
-
-            <ion-item-options side="right">
-              <button ion-button color="danger">
-                  <ion-icon name="md-close-circle"></ion-icon>
-                </button>
-            </ion-item-options>
-          </ion-item-sliding>
-          <!-- <div *ngIf="items < 1" subText>
-                NO ITEM
-              </div> -->
-          <ion-card *ngFor="let order of ordersItem">
-            <ion-card-header HeaderPadding>
-              <ion-row>
-                <ion-col col-10 text-left>
-                  <!-- <h1>{{order.name}} : {{order.price}} ฿</h1> -->
-                </ion-col>
-                <ion-col col-2 text-center>
-                  <button ion-button color="danger" icon-only small (click)="deleteOrder(order._id)"><ion-icon name="md-close"></ion-icon>
-            </button>
-                </ion-col>
-              </ion-row>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-list>
-                <ion-item>
-                  <h2 fontSet>Qty. </h2>
-
-                  <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
-                      </button>
-                  <!-- <span item-right>{{order.qty}}</span> -->
-
-                  <button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
-            </button>
-                </ion-item>
-                <ion-item *ngIf="order.category[0].subcate =='coffee'">
-                  <ion-label color="primary">Sweetness level</ion-label>
-                  <ion-select [(ngModel)]="order.sweetness" interface="popover">
-
-                    <ion-option value="low">Low</ion-option>
-                    <ion-option selected value="medium">Medium</ion-option>
-                    <ion-option value="high">High</ion-option>
-                  </ion-select>
-                </ion-item>
-                <ion-item *ngIf="order.category[0].subcate =='coffee'">
-                  <ion-label color="primary">Amount of caffeine</ion-label>
-                  <ion-select [(ngModel)]="order.degrees" interface="popover">
-                    <ion-option value="regular">Regular</ion-option>
-                    <ion-option selected value="half">Half-caf</ion-option>
-                    <ion-option value="de">De-caf</ion-option>
-                  </ion-select>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
-
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-scroll>
         </ion-list>
+        <button ion-button icon-left block class="btnCal" (click)="gotoCalculate()" color="brw">
+            <ion-icon name="md-calculator"></ion-icon>Calculate
+          </button>
       </ion-col>
     </ion-row>
   </ion-grid>

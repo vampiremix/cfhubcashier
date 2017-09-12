@@ -1,9 +1,69 @@
 page-menu {
+    
+    background-color: #eee8e4;
+    ion-content {
+        background-color: #eee8e4; // color: #eee8e4;
+    }
+    .toolbar-title {
+        color: #eee8e4;
+    }
+    .header .toolbar-background {
+        border-color: navajowhite;
+        background-color: #875d49;
+    }
     .CardSize {
         height: 10vh;
         width: 12vw;
     }
-    .scrollHeight{
-        height: 100vh;
+    .card-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 3vh;
+    }
+    .scrollHeight {
+        height: 78vh;
+    }
+    .scrollHeight2 {
+        height: 63vh;
+    }
+    .SegmentSize {
+        font-size: 120% !important;
+        // height: 45px !important;
+    }
+    .btnCal {
+        position: absolute;
+        bottom: 0px;
+        /* text-align: center; */
+    }
+    img {
+        min-height: 14vh;
+    }
+    .segment-ios .segment-button.segment-activated {
+        color: #fff;
+        background-color: #d6a347;
+    }
+    .segment-md .segment-button.segment-activated {
+        color: black;
+        background-color: #FCF2CE;
+        font-weight: bold;
+    }
+    .segment-ios .segment-button.segment-activated {
+        color: black;
+        background-color: #FCF2CE;
+        font-weight: bold;
+    }
+    .segment-md .segment-button {
+        border-color: #FFFFFF;
+        color: #875d49;
+    }
+    .segment-ios .segment-button {
+        border-color: #FFFFFF;
+        color: #875d49;
+    }
+    .popover-ios .popover-content {
+        width: 60%;
+    }
+    .colListColor{
+        background-color:#FFF7E7;
     }
 }

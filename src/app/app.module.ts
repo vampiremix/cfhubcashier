@@ -8,26 +8,35 @@ import { MyApp } from './app.component';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProductsProvider } from '../providers/products/products';
+import { HttpModule } from '@angular/http';
+import { OrdersProvider } from '../providers/orders/orders';
+import { PopOverComponent } from '../components/pop-over/pop-over';
+import { PreloadImage } from '../components/preload-image/preload-image';
 
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage
+    TabsPage,
+    PopOverComponent,
+    PreloadImage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage
+    TabsPage,
+    PopOverComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProductsProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ProductsProvider,
+    OrdersProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

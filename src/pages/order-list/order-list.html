@@ -13,6 +13,103 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col col-4 *ngFor="let item of arr" no-padding>
+        <ion-card no-padding>
+          <ion-card-header no-padding>
+            <ion-row align-items-center>
+              <ion-col>Customer Name</ion-col>
+              <ion-col text-right no-padding><button ion-button icon-right color="org">Make
+                  <ion-icon name="ios-cafe"></ion-icon>
+                </button></ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content no-padding>
+            <ion-list no-padding>
+              <ion-item no-padding>
+                <ion-row align-items-center no-padding>
+                  <ion-col col-10>
+                    <span>Caramel Milk : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                  </ion-col>
+                  <ion-col col-2 text-right>
+                    60.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
 
+              <ion-item no-padding>
+                <ion-row align-items-center no-padding>
+                  <ion-col col-10>
+                    <span>Espresso : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                  </ion-col>
+                  <ion-col col-2 text-right>
+                    50.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+
+              <ion-item no-padding>
+                <ion-row align-items-center no-padding>
+                  <ion-col col-10>
+                    <span>Mocha : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                  </ion-col>
+                  <ion-col col-2 text-right>
+                    55.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <ion-row align-items-center>
+                <ion-col>Customer Name</ion-col>
+                <ion-col text-right no-padding><button ion-button icon-right color="secondary">Complete
+                    <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+                  </button></ion-col>
+              </ion-row>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list>
+                <ion-item no-padding>
+                  <ion-row align-items-center no-padding>
+                    <ion-col col-10>
+                      <span>Caramel Milk : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                    </ion-col>
+                    <ion-col col-2 text-right>
+                      60.-
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+  
+                <ion-item no-padding>
+                  <ion-row align-items-center no-padding>
+                    <ion-col col-10>
+                      <span>Espresso : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                    </ion-col>
+                    <ion-col col-2 text-right>
+                      50.-
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+  
+                <ion-item no-padding>
+                  <ion-row align-items-center no-padding>
+                    <ion-col col-10>
+                      <span>Mocha : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
+                    </ion-col>
+                    <ion-col col-2 text-right>
+                      55.-
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

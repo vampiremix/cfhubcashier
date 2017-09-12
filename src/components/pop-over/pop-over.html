@@ -1,0 +1,44 @@
+<ion-row no-padding >
+  <ion-col col-6 no-padding>
+    <ion-list radio-group no-padding [(ngModel)]="opts.degrees">
+      <ion-list-header text-center>
+        Degrees
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Half-caf</ion-label>
+        <ion-radio value="half"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Regular</ion-label>
+        <ion-radio checked="true" value="regular"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>De-caf</ion-label>
+        <ion-radio value="de"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+  <ion-col col-6 no-padding>
+    <ion-list radio-group no-padding [(ngModel)]="opts.sweetness">
+      <ion-list-header text-center>
+        Sweetness
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Low</ion-label>
+        <ion-radio value="low"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Medium</ion-label>
+        <ion-radio checked="true" value="medium"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>High</ion-label>
+        <ion-radio value="high"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+</ion-row>
