@@ -8,11 +8,118 @@
 
   <ion-navbar>
     <ion-title>calculate</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-end round (click)="usePromotion()">Promotion
+          <ion-icon name="md-barcode"></ion-icon> 
+        </button>
+      </ion-buttons>
   </ion-navbar>
-
+ 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-bounce>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 class="colListColor" no-padding>
+        <ion-list>
+          <ion-list-header>
+            <h2>Menulist</h2>
+            <button ion-button icon-right item-right color="danger" (click)="clearList()">
+                Clear
+                <ion-icon name="trash"></ion-icon>
+              </button>
+          </ion-list-header>
+          <ion-scroll scrollY class="scrollHeight2">
+            <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
+              <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
+              <ion-item>
+                <ion-row align-items-center>
+                  <ion-col align-self-center>
+                    <h2>{{ord.name}}</h2>
+                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Degrees : {{ord.degrees}}</p> -->
+                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Sweetness : {{ord.sweetness}}</p> -->
+                  </ion-col>
+                  <ion-col text-right>
+                    {{ord.price}}.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="danger" (click)="deleteOrder(ord._id)">
+                <ion-icon name="md-close-circle"></ion-icon>
+              </button>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-scroll>
+        </ion-list>
+      </ion-col>
+      <ion-col col-8 class="colPosition">
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <ion-list no-padding sliding>
+              <ion-item>
+                <ion-row>
+                  <ion-col text-left>Subtotal : </ion-col>
+                  <ion-col text-right>999</ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item>
+                <ion-row>
+                  <ion-col text-left>Discount : </ion-col>
+                  <ion-col text-right>999</ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item>
+                <ion-row>
+                  <ion-col text-left>Total : </ion-col>
+                  <ion-col text-right>999</ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item>
+                  <ion-row>
+                    <ion-col text-left>Cash receive : </ion-col>
+                    <ion-col text-right>0</ion-col>
+                  </ion-row>
+                </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
 
+
+        <ion-row no-padding>
+          <ion-col><button ion-button round outline strong (click)="numclick(1)" class="numBtn">1
+            </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(2)" class="numBtn">2
+            </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(3)" class="numBtn">3
+            </button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><button ion-button round outline strong (click)="numclick(4)" class="numBtn">4
+              </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(5)" class="numBtn">5
+              </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(6)" class="numBtn">6
+              </button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><button ion-button round outline strong (click)="numclick(7)" class="numBtn">7
+                </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(8)" class="numBtn">8
+                </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(9)" class="numBtn">9
+                </button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><button ion-button round outline strong (click)="numclick(0)" class="numBtn">0
+                  </button></ion-col>
+          <ion-col><button ion-button round outline strong (click)="numclick(00)" class="numBtn">00
+                  </button></ion-col>
+          <ion-col><button ion-button icon-only round outline strong (click)="numclick(del)" class="numBtn">
+                <ion-icon name="md-backspace"></ion-icon></button></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,31 +1,32 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
-
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
-
-
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-$themeCoffeeHub: (
-navbar: #CF8D52
-);
+$themeCoffeeHub: ( navbar: #CF8D52);
+.toolbar-title-ios {
+    color: white !important;
+}
 
+.toolbar-title-md {
+    color: white !important;
+}
 
+.header .toolbar-background {
+    border-color: navajowhite;
+    background-color: #875d49;
+}
 
 // Named Color Variables
 // --------------------------------------------------
@@ -34,61 +35,48 @@ navbar: #CF8D52
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
-  org:        orange,
-  brw:#69411B
-);
-
-
+$colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222, org: orange, brw:#796643);
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+$toolbar-ios-button-color: white;
 
+$button-ios-background-color-activated:#FCF2CE;
+
+$button-ios-outline-border-color: #875d49;
+$tabs-ios-tab-icon-color-active: #875d49;
+$tabs-ios-tab-text-color-active: #875d49;
 $popover-ios-width: 300px;
 $segment-button-ios-height: 4.5rem;
-$segment-button-ios-font-size:	2rem;
-
+$segment-button-ios-font-size: 2rem;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
+$toolbar-md-button-color: white;
+$button-md-background-color-activated: #FCF2CE;
 
+$button-md-outline-border-color: #875d49;
+$tabs-md-tab-text-color-active: #875d49;
+$tabs-md-tab-icon-color-active:#875d49;
 $popover-md-width: 300px;
 $segment-button-md-height: 4.5rem;
 $segment-button-md-font-size: 2rem;
-
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
-
-
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can
 // then be future customized. This import comes last
 // so that the above variables are used and Ionic's
 // default are overridden.
-
 @import "ionic.theme.default";
-
-
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
-
 @import "ionic.ionicons";
-
-
 // Fonts
 // --------------------------------------------------
-
 @import "roboto";
 @import "noto-sans";

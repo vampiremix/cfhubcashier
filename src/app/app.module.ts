@@ -12,13 +12,15 @@ import { HttpModule } from '@angular/http';
 import { OrdersProvider } from '../providers/orders/orders';
 import { PopOverComponent } from '../components/pop-over/pop-over';
 import { PreloadImage } from '../components/preload-image/preload-image';
+import { CalculatePage } from '../pages/calculate/calculate';
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     PopOverComponent,
-    PreloadImage
+    PreloadImage,
+    CalculatePage
   ],
   imports: [
     HttpModule,
@@ -29,7 +31,8 @@ import { PreloadImage } from '../components/preload-image/preload-image';
   entryComponents: [
     MyApp,
     TabsPage,
-    PopOverComponent
+    PopOverComponent,
+    CalculatePage
   ],
   providers: [
     StatusBar,

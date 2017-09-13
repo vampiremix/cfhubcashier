@@ -4,6 +4,7 @@ import { ProductsProvider } from '../../providers/products/products';
 import { ProductsViewModel } from '../../models/products.model';
 import { OrdersProvider } from '../../providers/orders/orders';
 import { PopOverComponent } from "../../components/pop-over/pop-over";
+import { CalculatePage } from '../calculate/calculate';
 
 /**
  * Generated class for the MenuPage page.
@@ -56,7 +57,7 @@ export class MenuPage {
   }
   gotoCalculate() {
     if (this.ordersPVD.order.length) {
-      // this.navCtrl.push(CalculatePage);
+      this.navCtrl.push(CalculatePage);
     } else {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',
