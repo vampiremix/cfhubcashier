@@ -11,13 +11,11 @@
                 }
             ],
             "created": "2017-08-16T10:49:57.474Z",
-            "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/1_g8fyr9.jpg",
-                    "id": "chocolate cake 1",
-                    "_id": "59942355e730751000eae093"
-                }
-            ],
+            "image": 
+                [
+                    "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/1_g8fyr9.jpg"
+                ]
+            ,
             "name": "Chocolate cake",
             "price": 80,
             "shop_id": "59942081e730751000eae090",
@@ -37,11 +35,7 @@
             ],
             "created": "2017-08-16T10:53:48.248Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/2_nv8b1a.jpg",
-                    "id": "strawberry cake 2",
-                    "_id": "5994243ce730751000eae096"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/2_nv8b1a.jpg"         
             ],
             "name": "Strawberry cake",
             "price": 80,
@@ -60,11 +54,7 @@
             ],
             "created": "2017-08-16T10:54:08.590Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/3_xowy33.jpg",
-                    "id": "blueberry cake 3",
-                    "_id": "59942450e730751000eae099"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/3_xowy33.jpg"
             ],
             "name": "Blueberry cake",
             "price": 65,
@@ -83,11 +73,7 @@
             ],
             "created": "2017-08-16T10:54:28.947Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/4_wh14yb.jpg",
-                    "id": "chocolate chip cookie 4",
-                    "_id": "59942464e730751000eae09c"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/4_wh14yb.jpg"
             ],
             "name": "Chocolate chip cookie",
             "price": 30,
@@ -106,11 +92,7 @@
             ],
             "created": "2017-08-16T10:54:40.770Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879101/5_zo8lch.jpg",
-                    "id": "macaron 5",
-                    "_id": "59942470e730751000eae09f"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879101/5_zo8lch.jpg"
             ],
             "name": "Macaron",
             "price": 75,
@@ -129,11 +111,7 @@
             ],
             "created": "2017-08-17T03:04:00.637Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/1_fwbmfv.jpg",
-                    "id": "pasta spicy seafood 1",
-                    "_id": "599507a0fcfd6410007b21ad"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/1_fwbmfv.jpg"
             ],
             "name": "Pasta spicy seafood",
             "price": 50,
@@ -152,11 +130,7 @@
             ],
             "created": "2017-08-17T03:08:43.957Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/2_adeld9.jpg",
-                    "id": "pasta carbonara 2",
-                    "_id": "599508bbfcfd6410007b21b0"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/2_adeld9.jpg"
             ],
             "name": "Pasta carbonara",
             "price": 70,
@@ -175,11 +149,7 @@
             ],
             "created": "2017-08-17T03:10:10.854Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/3_jaupua.jpg",
-                    "id": "pork chops with potato wedges 3",
-                    "_id": "59950912fcfd6410007b21b3"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/3_jaupua.jpg"
             ],
             "name": "Pork chops with potato wedges",
             "price": 80,
@@ -198,11 +168,7 @@
             ],
             "created": "2017-08-17T03:11:06.616Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882623/4_gbbojn.jpg",
-                    "id": "salmon steak 4",
-                    "_id": "5995094afcfd6410007b21b6"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882623/4_gbbojn.jpg"
             ],
             "name": "Salmon steak",
             "price": 90,
@@ -221,11 +187,7 @@
             ],
             "created": "2017-08-17T03:12:23.157Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/5_zpuzi4.jpg",
-                    "id": "soup mushroom 5",
-                    "_id": "59950997fcfd6410007b21b9"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/5_zpuzi4.jpg"
             ],
             "name": "Soup mushroom",
             "price": 90,
@@ -244,11 +206,7 @@
             ],
             "created": "2017-08-17T03:16:17.646Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881521/1_puczwk.jpg",
-                    "id": "espresso 1",
-                    "_id": "59950a81fcfd6410007b21bc"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881521/1_puczwk.jpg"
             ],
             "name": "Espresso",
             "price": 50,
@@ -267,11 +225,7 @@
             ],
             "created": "2017-08-17T03:17:07.784Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881516/2_vdfjsi.jpg",
-                    "id": "latte macchiato 2",
-                    "_id": "59950ab3fcfd6410007b21bf"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881516/2_vdfjsi.jpg"
             ],
             "name": "Latte macchiato",
             "price": 70,
@@ -290,11 +244,7 @@
             ],
             "created": "2017-08-17T03:17:56.754Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/3_plumio.jpg",
-                    "id": "cappuccino 3",
-                    "_id": "59950ae4fcfd6410007b21c2"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/3_plumio.jpg"
             ],
             "name": "Cappuccino",
             "price": 70,
@@ -313,11 +263,7 @@
             ],
             "created": "2017-08-17T03:18:50.557Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/4_jjeczp.jpg",
-                    "id": "flat white 4",
-                    "_id": "59950b1afcfd6410007b21c5"
-                }
+                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/4_jjeczp.jpg"
             ],
             "name": "Flat white",
             "price": 70,
@@ -336,11 +282,7 @@
             ],
             "created": "2017-08-17T03:19:54.059Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg",
-                    "id": "orange juice 5",
-                    "_id": "59950b5afcfd6410007b21c8"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg"
             ],
             "name": "Orange juice",
             "price": 50,
@@ -359,11 +301,7 @@
             ],
             "created": "2017-08-17T03:35:27.097Z",
             "image": [
-                {
-                    "url": "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg",
-                    "id": "orange juice 6",
-                    "_id": "59950efffcfd6410007b21ce"
-                }
+               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg"
             ],
             "name": "Orange juice",
             "price": 50,

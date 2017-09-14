@@ -13,6 +13,8 @@ import { OrdersProvider } from '../providers/orders/orders';
 import { PopOverComponent } from '../components/pop-over/pop-over';
 import { PreloadImage } from '../components/preload-image/preload-image';
 import { CalculatePage } from '../pages/calculate/calculate';
+import { PromotionsProvider } from '../providers/promotions/promotions';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { CalculatePage } from '../pages/calculate/calculate';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ProductsProvider,
-    OrdersProvider
+    OrdersProvider,
+    PromotionsProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule { }

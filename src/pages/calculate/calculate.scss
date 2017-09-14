@@ -1,19 +1,43 @@
 page-calculate {
-    .colListColor{
-        background-color:#FFF7E7;
+    .list-ios {
+        margin: 0px 0 0px;
+    }
+    .list-md {
+        margin: 0px 0 0px;
+    }
+    .colListColor {
+        background-color: #FFF7E7;
     }
     .scrollHeight2 {
-        height: 75vh;
+        height: 65vh;
     }
-    .numBtn{
+    .numBtn {
         width: 100%;
         font-size: 20px;
         font-weight: bold;
         color: #796643;
     }
-    .colPosition{
+    .colPosition {
         bottom: 0px;
         position: absolute;
         right: 0px;
+    }
+    .button:hover:not(.disable-hover) {
+        /* background-color: #488aff; */
+        background-color: #554036;
+    }
+    .btnCalColor {
+        width: 40vw;
+        color: white;
+        background-color: #875d49;
+    }
+    .fontbar {
+        font-weight: bold;
+        color: white;
+        font-size: 2.3rem;
+        vertical-align: sub;
+    }
+    .fontBold{
+        font-weight: bold;
     }
 }

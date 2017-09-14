@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, PopoverController,ModalController } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products';
 import { ProductsViewModel } from '../../models/products.model';
 import { OrdersProvider } from '../../providers/orders/orders';
@@ -29,7 +29,9 @@ export class MenuPage {
     private productsPVD: ProductsProvider,
     private ordersPVD: OrdersProvider,
     public toastCtrl: ToastController,
-    public popoverCtrl: PopoverController) {
+    public popoverCtrl: PopoverController,
+    public modalCtrl: ModalController
+  ) {
   }
 
   ionViewDidLoad() {
@@ -56,8 +58,13 @@ export class MenuPage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
+    
+  
     if (this.ordersPVD.order.length) {
-      this.navCtrl.push(CalculatePage);
+      let profileModal = this.modalCtrl.create(CalculatePage);
+      profileModal.present();
+
+      // this.navCtrl.push(CalculatePage);
     } else {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',

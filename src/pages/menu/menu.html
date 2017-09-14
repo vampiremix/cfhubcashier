@@ -36,7 +36,7 @@
               <ion-col col-3 *ngFor="let item of prod_drink" no-padding>
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
                   <!-- <preload-image  [src]="item.image[0].url" ></preload-image>Ç -->
-                  <img [src]="item.image[0].url" />
+                  <img [src]="item.image[0]" />
                   <ion-row>
                     <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
                     <ion-col text-right>{{item.price}}.-</ion-col>
@@ -48,7 +48,7 @@
             <ion-row *ngSwitchCase="'Dessert'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_dessert" no-padding>
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
-                  <img [src]="item.image[0].url" />
+                  <img [src]="item.image[0]" />
                   <ion-row>
                     <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
                     <ion-col text-right>{{item.price}}.-</ion-col>
@@ -60,7 +60,7 @@
             <ion-row *ngSwitchCase="'Food'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_food" no-padding>
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
-                  <img [src]="item.image[0].url" />
+                  <img [src]="item.image[0]" />
                   <ion-row>
                     <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
                     <ion-col text-right>{{item.price}}.-</ion-col>

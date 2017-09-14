@@ -2,21 +2,23 @@ export class ProductsViewModel{
     products: Array<ProductItemModel>;
 }
 export class ProductItemModel {
-    category: Array<CategoryModel>;
-    image: Array<imgModel>;
+    category: string;
+    image: Array<any>;
+    description: string;
     name: string;
     shop_id: string;
-    price: number;
+    price: Array<priceArrModel>;
     user: string;
     created: string;
     _id: string;
+    favorites: Array<string>;
 }
-export class CategoryModel {
-    name: string;
-    detail: string;
-    subcate: string;
+export class priceArrModel{
+    price : number;
+    type : string;
+    discount : number;
+    netprice : number;
 }
-export class imgModel {
-    url: string;
-    id: string;
+export class imgstring{
+    string;
 }
