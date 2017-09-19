@@ -1,10 +1,8 @@
 page-menu {
-    
-    background-color: #eee8e4;
+    // background-color: #eee8e4;
     ion-content {
         background-color: #eee8e4; // color: #eee8e4;
     }
-    
     .CardSize {
         height: 10vh;
         width: 12vw;
@@ -21,8 +19,7 @@ page-menu {
         height: 63vh;
     }
     .SegmentSize {
-        font-size: 120% !important;
-        // height: 45px !important;
+        font-size: 120% !important; // height: 45px !important;
     }
     .btnCal {
         position: absolute;
@@ -31,6 +28,12 @@ page-menu {
     }
     img {
         min-height: 14vh;
+    }
+    .popover-ios .popover-content {
+        width: 60%;
+    }
+    .colListColor {
+        background-color: #FFF7E7;
     }
     .segment-ios .segment-button.segment-activated {
         color: #fff;
@@ -53,11 +56,5 @@ page-menu {
     .segment-ios .segment-button {
         border-color: #FFFFFF;
         color: #875d49;
-    }
-    .popover-ios .popover-content {
-        width: 60%;
-    }
-    .colListColor{
-        background-color:#FFF7E7;
     }
 }

@@ -15,16 +15,16 @@
 
 <ion-content no-bounce>
   <div>
-    <ion-segment [(ngModel)]="category">
-      <ion-segment-button value="Drink" class="SegmentSize">
-        DRINK
+    <ion-segment [(ngModel)]="categoriesSelect">
+      <ion-segment-button [value]="cates.cate" class="SegmentSize" *ngFor="let cates of categoriesPVD.category" >
+        {{cates.cate}}
       </ion-segment-button>
-      <ion-segment-button value="Dessert" class="SegmentSize">
+      <!-- <ion-segment-button value="Dessert" class="SegmentSize">
         DESSERT
       </ion-segment-button>
       <ion-segment-button value="Food" class="SegmentSize">
-        FOOD
-      </ion-segment-button>
+        FOODs
+      </ion-segment-button> -->
     </ion-segment>
   </div>
   <ion-grid no-padding>
@@ -38,8 +38,8 @@
                   <!-- <preload-image  [src]="item.image[0].url" ></preload-image>Ç -->
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
-                    <ion-col text-right>{{item.price}}.-</ion-col>
+                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -50,8 +50,8 @@
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
-                    <ion-col text-right>{{item.price}}.-</ion-col>
+                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -62,8 +62,8 @@
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col col-8 class="card-title" text-nowrap>{{item.name}}</ion-col>
-                    <ion-col text-right>{{item.price}}.-</ion-col>
+                    <ion-col  class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -91,7 +91,7 @@
                     <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Sweetness : {{ord.sweetness}}</p> -->
                   </ion-col>
                   <ion-col text-right>
-                    {{ord.price}}.-
+                    {{ord.prices}}.-
                   </ion-col>
                 </ion-row>
               </ion-item>

@@ -11,8 +11,167 @@
   </ion-navbar>
 
 </ion-header>
+<ion-content>
+  <ion-item>
+    <ion-row>
+      <ion-col text-center>
+        <img [src]="chosenPicture" class="avatarSize">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button icon-left round>
+              <ion-icon name="md-image"></ion-icon>
+              Change Picture
+            </button>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-grid>
+    <ion-row class="Height">
+      <ion-col col-6 class="border-right" text-center>
+        <h2>Account</h2>
+        <ion-item>
+          <ion-label>
+            Name :
+          </ion-label>
+          <ion-input>
 
+          </ion-input>
 
-<ion-content padding>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Email :
+          </ion-label>
+          <ion-input>
 
+          </ion-input>
+
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Phone :
+          </ion-label>
+          <ion-input>
+
+          </ion-input>
+
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-6 text-center>
+        <h2>Shop</h2>
+        <ion-item>
+            <ion-label>
+              Shop code :
+            </ion-label>
+            <ion-input>
+  
+            </ion-input>
+  
+          </ion-item>
+        <ion-item>
+          <ion-label>
+            Shop name :
+          </ion-label>
+          <ion-input>
+
+          </ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>
+              Address :
+            </ion-label>
+            <ion-input>
+  
+            </ion-input>
+  
+          </ion-item>
+
+          <ion-item>
+              <ion-label>
+                Location :
+              </ion-label>
+              <ion-input>
+    
+              </ion-input>
+    
+            </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+
+<!-- <ion-content class="settings-content">
+  <div *ngIf="profileData">
+      <div class="user-image-content">
+          <ion-row no-padding class="user-image-row">
+              <ion-col no-padding width-40>
+                  <ion-avatar class="user-image" item-start>
+                      <img [src]="chosenPicture">
+                    </ion-avatar>
+                  <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="chosenPicture" alt="this is the image" title="IMAGE!"></preload-image>
+              </ion-col>
+          </ion-row>
+          <ion-row no-padding class="user-image-row">
+              <ion-col no-padding width-60>
+                  <button class="image-action-button" ion-button outline block small (click)="changePicture()">{{ 'CHANGE_PROFILE_PICTURE' | translate}}</button>
+              </ion-col>
+          </ion-row>
+      </div>
+      <ion-list class="user-data-content">
+          <ion-list-header >
+              <ion-row>
+                  <ion-col col-6 class="profile-left">
+                      Profile
+                  </ion-col>
+                  <ion-col col-6 class="btn-right">
+                      <button ion-button clear class="size-btn" (click)="clicktogglr()">
+                              <ion-icon [name]="Edit" ></ion-icon>
+                          </button>
+                  </ion-col>
+              </ion-row>
+          </ion-list-header>
+
+          <ion-item>
+              <ion-label stacked>{{ 'First Name' | translate }}</ion-label>
+              <ion-input [disabled]="isenabled" type="text" [(ngModel)]="profileData.firstName" placeholder="Amonrat"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label stacked>{{ 'Last Name' | translate }}</ion-label>
+              <ion-input [disabled]="isenabled" type="text" [(ngModel)]="profileData.lastName" placeholder="Chantawon"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label stacked>{{ 'E-mail' | translate }}</ion-label>
+              <ion-input [disabled]="isenabled" [(ngModel)]="profileData.email" rows="5" placeholder="anonataszx@outlook.co.th"></ion-input>
+          </ion-item>
+
+      </ion-list>
+
+      <ion-list no-border>
+          <ion-list-header>
+              General
+          </ion-list-header>
+          <ion-item>
+              <ion-icon name='settings' item-start></ion-icon>
+              <ion-label>Language</ion-label>
+              <ion-select [(ngModel)]="language">
+                  <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-toggle [(ngModel)]="enableNotifications" (tap)="toggleNotifications()"></ion-toggle>
+              <ion-label class="label"> Enable notifications </ion-label>
+              <ion-icon name='notifications' item-start></ion-icon>
+          </ion-item>
+      </ion-list>
+      <button class="alt-button logout-button" ion-button full icon-left (click)="logout()">
+  <ion-icon name="log-out"></ion-icon>
+  {{'LOG_OUT' | translate }}
+</button>
+  </div>
+
+</ion-content> -->

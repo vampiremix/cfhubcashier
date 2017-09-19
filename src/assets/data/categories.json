@@ -1,0 +1,72 @@
+[
+    {
+        "_id": "59ba5cff047a9e980aab8da1",
+        "description": "drink category",
+        "created": "2017-09-14T17:42:07.471+07:00",
+        "image": [
+            "https://static1.squarespace.com/static/54c5468de4b039d9590f4251/5853e89c893fc05274762690/58542f1cd2b8575a1dddba5f/1482760930911/IMG_6805-2.jpg",
+            "https://static1.squarespace.com/static/551446bee4b0959b1053f9f7/58051cf8f7e0abd6e8f275ef/58051e3f2e69cfedd1fc6c3c/1476730614403/IMG_1037.JPG"
+        ],
+        "subcate": [
+            {
+                "subname": "Juice&Smoothies",
+                "_id": "59ba5cff047a9e980aab8da6"
+            },
+            {
+                "subname": "Coffee",
+                "_id": "59ba5cff047a9e980aab8da5"
+            },
+            {
+                "subname": "Tea",
+                "_id": "59ba5cff047a9e980aab8da4"
+            },
+            {
+                "subname": "Milk&Chocolate",
+                "_id": "59ba5cff047a9e980aab8da3"
+            }
+        ],
+        "name": "Drink",
+        "__v": 0
+    },
+    {
+        "_id": "59ba64098ba1a7c439d2a47a",
+        "description": "Dessert category",
+        "created": "2017-09-14T18:12:09.837+07:00",
+        "image": [
+            "https://www.fitnessmagazine.com/sites/fitnessmagazine.com/files/1000-dessert-smoothies-vegan-banana-cream-pie-blizzards-7-ingredients-super-creamy-so-delicious.jpg",
+            "http://images.shape.mdpcdn.com/sites/shape.com/files/vegan-tofu-dessert.jpg"
+        ],
+        "subcate": [
+            {
+                "subname": "Cake",
+                "_id": "59ba64098ba1a7c439d2a47e"
+            },
+            {
+                "subname": "Pudding",
+                "_id": "59ba64098ba1a7c439d2a47d"
+            },
+            {
+                "subname": "Icecream",
+                "_id": "59ba64098ba1a7c439d2a47c"
+            },
+            {
+                "subname": "Snack",
+                "_id": "59ba64098ba1a7c439d2a47b"
+            }
+        ],
+        "name": "Dessert",
+        "__v": 0
+    },
+    {
+        "_id": "59ba64e08ba1a7c439d2a47f",
+        "description": "Food category",
+        "created": "2017-09-14T18:15:44.893+07:00",
+        "image": [
+            "http://i.imgur.com/cDh6kby.jpg",
+            "https://protrainf3.com/wp-content/uploads/2017/08/salmon-burger-1000x1000.jpg"
+        ],
+        "subcate": [],
+        "name": "Food",
+        "__v": 0
+    }
+]

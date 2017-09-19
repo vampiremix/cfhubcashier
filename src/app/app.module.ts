@@ -15,6 +15,10 @@ import { PreloadImage } from '../components/preload-image/preload-image';
 import { CalculatePage } from '../pages/calculate/calculate';
 import { PromotionsProvider } from '../providers/promotions/promotions';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { CategoriesProvider } from '../providers/categories/categories';
+import { CameraProvider } from '../providers/camera/camera';
+
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ProductsProvider,
     OrdersProvider,
     PromotionsProvider,
-    BarcodeScanner
+    BarcodeScanner,
+    CategoriesProvider,
+    CameraProvider,
+    Camera
   ]
 })
 export class AppModule { }

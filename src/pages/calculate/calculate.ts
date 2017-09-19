@@ -107,10 +107,11 @@ export class CalculatePage {
     this.total = parseInt('0');
     for (let i = 0; i < this.ordersPVD.order.length; i++) {
       console.log("Qty. : " + parseInt(this.ordersPVD.order[i].qty));
-      let totalsum = parseInt(this.ordersPVD.order[i].qty) * parseInt(this.ordersPVD.order[i].price);
-      this.total += totalsum;
+      // let totalsum = parseInt(this.ordersPVD.order[i].qty) * parseInt(this.ordersPVD.order[i].price);
+     this.total += parseInt(this.ordersPVD.order[i].price);
+      // this.total += totalsum;
       // console.log("this.summary.total : " + this.total);
-      // console.log("totalsum : " + this.total);
+      console.log("totalsum : " + this.total);
     }
     if (this.getpromotion) {
       // this.getpromotion.startdate = this.getpromotion.startdate.toLocaleDateString();
@@ -138,9 +139,6 @@ export class CalculatePage {
     return cashReceive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  clickClear() {
-    this.cashReceive = "0"; this.cashReceiveShow = "0";
-  }
   inputPromotion() {
     let options = {
       preferFrontCamera: true,

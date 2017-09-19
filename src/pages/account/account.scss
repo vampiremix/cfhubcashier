@@ -1,3 +1,15 @@
 page-account {
+    .avatarSize{
+        height: 20vh;
+        width: 15vw;
+    }
 
+    .border-right {
+        // border-style: solid;
+        border-right: thick solid gray ;
+        border-right-width: 2px;
+    }
+    .Height{
+        height: 50vh;
+    }
 }

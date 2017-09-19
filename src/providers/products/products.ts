@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 export class ProductsProvider {
 
   ////////////////////////////////////////////////
-  apiUrl: string = 'https://coffeehub.herokuapp.com/';
+  apiUrl: string = 'https://coffeehubserver.herokuapp.com/';
   headers = new Headers({
     'Content-Type': 'application/json'
   });
@@ -28,26 +28,26 @@ export class ProductsProvider {
   }
 
   //Local Data 
-  getData(): Promise<ProductsViewModel> {
-    return this.http.get('./assets/data/products.json')
-      .toPromise()
-      .then(response => response.json() as ProductsViewModel)
-      .catch(this.handleError);
-  }
+  // getData(): Promise<ProductsViewModel> {
+  //   return this.http.get('./assets/data/products.json')
+  //     .toPromise()
+  //     .then(response => response.json() as ProductsViewModel)
+  //     .catch(this.handleError);
+  // }
 
   // Get Data from  Server
-  // getData(): Promise<ProductsViewModel> {
-  //   return new Promise((resolve, reject) => {
-  //     this.http.get(this.apiUrl + 'api/products').map(res => {
-  //       // console.log(res);
-  //       return res.json();
-  //     }).subscribe(data => {
-  //       resolve(data);
-  //     }, (error) => {
-  //       reject(error);
-  //     });
-  //   })
-  // }
+  getDataBycate(cateID): Promise<ProductsViewModel> {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + 'api/products/cate/' + cateID).map(res => {
+        // console.log(res);
+        return res.json();
+      }).subscribe(data => {
+        resolve(data);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

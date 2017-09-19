@@ -1,312 +1,286 @@
-{
-    "products": [
-        {
-            "_id": "59942355e730751000eae092",
-            "category": [
-                {
-                    "name": "Dessert",
-                    "detail": "any cake,macaron,cookie",
-                    "subcate": "cake",
-                    "_id": "59942355e730751000eae094"
-                }
-            ],
-            "created": "2017-08-16T10:49:57.474Z",
-            "image": 
-                [
-                    "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/1_g8fyr9.jpg"
-                ]
-            ,
-            "name": "Chocolate cake",
-            "price": 80,
-            "shop_id": "59942081e730751000eae090",
-            "user": "59941324e730751000eae08f"
-        },
-        {
-            "_id": "5994243ce730751000eae095",
-            "category": [
-                {
-                    "name": "Dessert",
-                    "detail": "any cake,macaron,cookie",
-                    "subcate": "cake",
-                    "_id": {
-                        "$oid": "5994243ce730751000eae097"
-                    }
-                }
-            ],
-            "created": "2017-08-16T10:53:48.248Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/2_nv8b1a.jpg"         
-            ],
-            "name": "Strawberry cake",
-            "price": 80,
-            "shop_id": "59942081e730751000eae090",
-            "user": "59941324e730751000eae08f"
-        },
-        {
-            "_id": "59942450e730751000eae098",
-            "category": [
-                {
-                    "name": "Dessert",
-                    "detail": "any cake,macaron,cookie",
-                    "subcate": "cake",
-                    "_id": "59942450e730751000eae09a"
-                }
-            ],
-            "created": "2017-08-16T10:54:08.590Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/3_xowy33.jpg"
-            ],
-            "name": "Blueberry cake",
-            "price": 65,
-            "shop_id": "59942081e730751000eae090",
-            "user": "59941324e730751000eae08f"
-        },
-        {
-            "_id": "59942464e730751000eae09b",
-            "category": [
-                {
-                    "name": "Dessert",
-                    "detail": "any cake,macaron,cookie",
-                    "subcate": "cookie",
-                    "_id": "59942464e730751000eae09d"
-                }
-            ],
-            "created": "2017-08-16T10:54:28.947Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/4_wh14yb.jpg"
-            ],
-            "name": "Chocolate chip cookie",
-            "price": 30,
-            "shop_id": "59942081e730751000eae090",
-            "user": "59941324e730751000eae08f"
-        },
-        {
-            "_id": "59942470e730751000eae09e",
-            "category": [
-                {
-                    "name": "Dessert",
-                    "detail": "any cake,macaron,cookie",
-                    "subcate": "macaron",
-                    "_id": "59942470e730751000eae0a0"
-                }
-            ],
-            "created": "2017-08-16T10:54:40.770Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879101/5_zo8lch.jpg"
-            ],
-            "name": "Macaron",
-            "price": 75,
-            "shop_id": "59942081e730751000eae090",
-            "user": "59941324e730751000eae08f"
-        },
-        {
-            "_id": "599507a0fcfd6410007b21ac",
-            "category": [
-                {
-                    "name": "Food",
-                    "detail": "any pasta, steak, soup",
-                    "subcate": "pasta",
-                    "_id": "599507a0fcfd6410007b21ae"
-                }
-            ],
-            "created": "2017-08-17T03:04:00.637Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/1_fwbmfv.jpg"
-            ],
-            "name": "Pasta spicy seafood",
-            "price": 50,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "599508bbfcfd6410007b21af",
-            "category": [
-                {
-                    "name": "Food",
-                    "detail": "any pasta, steak, soup",
-                    "subcate": "pasta",
-                    "_id": "599508bbfcfd6410007b21b1"
-                }
-            ],
-            "created": "2017-08-17T03:08:43.957Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/2_adeld9.jpg"
-            ],
-            "name": "Pasta carbonara",
-            "price": 70,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950912fcfd6410007b21b2",
-            "category": [
-                {
-                    "name": "Food",
-                    "detail": "any pasta, steak, soup",
-                    "subcate": "steak",
-                    "_id": "59950912fcfd6410007b21b4"
-                }
-            ],
-            "created": "2017-08-17T03:10:10.854Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/3_jaupua.jpg"
-            ],
-            "name": "Pork chops with potato wedges",
-            "price": 80,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "5995094afcfd6410007b21b5",
-            "category": [
-                {
-                    "name": "Food",
-                    "detail": "any pasta, steak, soup",
-                    "subcate": "steak",
-                    "_id": "5995094afcfd6410007b21b7"
-                }
-            ],
-            "created": "2017-08-17T03:11:06.616Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882623/4_gbbojn.jpg"
-            ],
-            "name": "Salmon steak",
-            "price": 90,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950997fcfd6410007b21b8",
-            "category": [
-                {
-                    "name": "Food",
-                    "detail": "any pasta, steak, soup",
-                    "subcate": "soup",
-                    "_id": "59950997fcfd6410007b21ba"
-                }
-            ],
-            "created": "2017-08-17T03:12:23.157Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502882621/5_zpuzi4.jpg"
-            ],
-            "name": "Soup mushroom",
-            "price": 90,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950a81fcfd6410007b21bb",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "coffee",
-                    "_id": "59950a81fcfd6410007b21bd"
-                }
-            ],
-            "created": "2017-08-17T03:16:17.646Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881521/1_puczwk.jpg"
-            ],
-            "name": "Espresso",
-            "price": 50,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950ab3fcfd6410007b21be",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "coffee",
-                    "_id": "59950ab3fcfd6410007b21c0"
-                }
-            ],
-            "created": "2017-08-17T03:17:07.784Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881516/2_vdfjsi.jpg"
-            ],
-            "name": "Latte macchiato",
-            "price": 70,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950ae4fcfd6410007b21c1",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "coffee",
-                    "_id": "59950ae4fcfd6410007b21c3"
-                }
-            ],
-            "created": "2017-08-17T03:17:56.754Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/3_plumio.jpg"
-            ],
-            "name": "Cappuccino",
-            "price": 70,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950b1afcfd6410007b21c4",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "coffee",
-                    "_id": "59950b1afcfd6410007b21c6"
-                }
-            ],
-            "created": "2017-08-17T03:18:50.557Z",
-            "image": [
-                "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/4_jjeczp.jpg"
-            ],
-            "name": "Flat white",
-            "price": 70,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950b5afcfd6410007b21c7",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "juice",
-                    "_id": "59950b5afcfd6410007b21c9"
-                }
-            ],
-            "created": "2017-08-17T03:19:54.059Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg"
-            ],
-            "name": "Orange juice",
-            "price": 50,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        },
-        {
-            "_id": "59950efffcfd6410007b21cd",
-            "category": [
-                {
-                    "name": "Drinks",
-                    "detail": "any drink, juice, coffee",
-                    "subcate": "juice",
-                    "_id": "59950efffcfd6410007b21cf"
-                }
-            ],
-            "created": "2017-08-17T03:35:27.097Z",
-            "image": [
-               "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg"
-            ],
-            "name": "Orange juice",
-            "price": 50,
-            "shop_id": "59942081e730751000eae090",
-            "user": "5994125be730751000eae08e"
-        }
-    ]
-}
+[
+    {
+        "_id": "59ba671af51801a4426bafa4",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba64098ba1a7c439d2a47e",
+        "description": "Chocolate cake made by English's chocolate",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T18:25:14.291+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 80,
+                "type": "",
+                "discount": 10,
+                "netprice": 70,
+                "_id": "59ba671af51801a4426bafa5"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/1_g8fyr9.jpg"
+        ],
+        "name": "Chocolate cake"
+    },
+    {
+        "_id": "59ba6b1afc3b9088430b3be6",
+        "category": "59ba5cff047a9e980aab8da1",
+        "subcate": "59ba5cff047a9e980aab8da5",
+        "description": "Espresso good taste and smell",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T18:42:18.792+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 45,
+                "type": "hot",
+                "discount": 0,
+                "netprice": 45,
+                "_id": "59ba6b1afc3b9088430b3be9"
+            },
+            {
+                "price": 55,
+                "type": "iced",
+                "discount": 0,
+                "netprice": 55,
+                "_id": "59ba6b1afc3b9088430b3be8"
+            },
+            {
+                "price": 65,
+                "type": "frappe",
+                "discount": 0,
+                "netprice": 65,
+                "_id": "59ba6b1afc3b9088430b3be7"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881521/1_puczwk.jpg"
+        ],
+        "name": "Espresso"
+    },
+    {
+        "_id": "59ba6b4ffc3b9088430b3bea",
+        "category": "59ba5cff047a9e980aab8da1",
+        "subcate": "59ba5cff047a9e980aab8da5",
+        "description": "Latte macchiato good taste and smell",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T18:43:11.293+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 45,
+                "type": "hot",
+                "discount": 0,
+                "netprice": 45,
+                "_id": "59ba6b4ffc3b9088430b3bed"
+            },
+            {
+                "price": 55,
+                "type": "iced",
+                "discount": 0,
+                "netprice": 55,
+                "_id": "59ba6b4ffc3b9088430b3bec"
+            },
+            {
+                "price": 65,
+                "type": "frappe",
+                "discount": 0,
+                "netprice": 65,
+                "_id": "59ba6b4ffc3b9088430b3beb"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881516/2_vdfjsi.jpg"
+        ],
+        "name": "Latte macchiato"
+    },
+    {
+        "_id": "59ba6b7bfc3b9088430b3bee",
+        "category": "59ba5cff047a9e980aab8da1",
+        "subcate": "59ba5cff047a9e980aab8da5",
+        "description": "Cappuccino good taste and smell",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T18:43:55.774+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 45,
+                "type": "hot",
+                "discount": 0,
+                "netprice": 45,
+                "_id": "59ba6b7bfc3b9088430b3bf1"
+            },
+            {
+                "price": 55,
+                "type": "iced",
+                "discount": 0,
+                "netprice": 55,
+                "_id": "59ba6b7bfc3b9088430b3bf0"
+            },
+            {
+                "price": 65,
+                "type": "frappe",
+                "discount": 0,
+                "netprice": 65,
+                "_id": "59ba6b7bfc3b9088430b3bef"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881519/3_plumio.jpg"
+        ],
+        "name": "Cappuccino"
+    },
+    {
+        "_id": "59ba6bf0fc3b9088430b3bf2",
+        "category": "59ba5cff047a9e980aab8da1",
+        "subcate": "59ba5cff047a9e980aab8da6",
+        "description": "Orange juice natural juice 100%",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T18:45:52.047+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 40,
+                "type": "iced",
+                "discount": 0,
+                "netprice": 40,
+                "_id": "59ba6bf0fc3b9088430b3bf4"
+            },
+            {
+                "price": 45,
+                "type": "frappe",
+                "discount": 0,
+                "netprice": 45,
+                "_id": "59ba6bf0fc3b9088430b3bf3"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502881518/5_rpslkg.jpg"
+        ],
+        "name": "Orange juice"
+    },
+    {
+        "_id": "59ba6f8bfc3b9088430b3bf5",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba5cff047a9e980aab8da5",
+        "description": "Americano coffee very good smell",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T19:01:15.337+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 40,
+                "type": "hot",
+                "discount": 0,
+                "netprice": 40,
+                "_id": "59ba6f8bfc3b9088430b3bf8"
+            },
+            {
+                "price": 50,
+                "type": "iced",
+                "discount": 0,
+                "netprice": 40,
+                "_id": "59ba6f8bfc3b9088430b3bf7"
+            },
+            {
+                "price": 60,
+                "type": "frappe",
+                "discount": 0,
+                "netprice": 60,
+                "_id": "59ba6f8bfc3b9088430b3bf6"
+            }
+        ],
+        "image": [
+            "https://static1.squarespace.com/static/5867822e20099ecdf7921f0b/t/5870adf220099e63d33b6c69/1483779579791/Americano.png",
+            "https://www.displayfakefoods.com/store/pc/catalog/2110-lg.jpg"
+        ],
+        "name": "Americano"
+    },
+    {
+        "_id": "59ba7317fc3b9088430b3bfb",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba64098ba1a7c439d2a47e",
+        "description": "any cake,macaron,cookie",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T19:16:23.897+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 80,
+                "type": "",
+                "discount": 10,
+                "netprice": 70,
+                "_id": "59ba7317fc3b9088430b3bfc"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/2_nv8b1a.jpg"
+        ],
+        "name": "Strawberry cake"
+    },
+    {
+        "_id": "59ba7351fc3b9088430b3bfd",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba64098ba1a7c439d2a47e",
+        "description": "any cake,macaron,cookie",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T19:17:21.395+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 65,
+                "type": "",
+                "discount": 10,
+                "netprice": 70,
+                "_id": "59ba7351fc3b9088430b3bfe"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/3_xowy33.jpg"
+        ],
+        "name": "Blueberry cakee"
+    },
+    {
+        "_id": "59ba7381fc3b9088430b3bff",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba64098ba1a7c439d2a47e",
+        "description": "any cake,macaron,cookie",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T19:18:09.541+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 30,
+                "type": "",
+                "discount": 10,
+                "netprice": 20,
+                "_id": "59ba7381fc3b9088430b3c00"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879091/4_wh14yb.jpg"
+        ],
+        "name": "Chocolate chip cookie"
+    },
+    {
+        "_id": "59ba73a5fc3b9088430b3c01",
+        "category": "59ba64098ba1a7c439d2a47a",
+        "subcate": "59ba64098ba1a7c439d2a47e",
+        "description": "any cake,macaron,cookie",
+        "shop_id": "59ba617e8ba1a7c439d2a478",
+        "created": "2017-09-14T19:18:45.327+07:00",
+        "favorite": [],
+        "price": [
+            {
+                "price": 75,
+                "type": "",
+                "discount": 10,
+                "netprice": 65,
+                "_id": "59ba73a5fc3b9088430b3c02"
+            }
+        ],
+        "image": [
+            "http://res.cloudinary.com/cyber-advance-system-and-network/image/upload/v1502879101/5_zo8lch.jpg"
+        ],
+        "name": "Macaron"
+    }
+]
