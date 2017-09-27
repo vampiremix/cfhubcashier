@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { categoriesModel } from "../../models/categories.model";
+import { RouteProvider } from '../route/route';
 /*
   Generated class for the CategoriesProvider provider.
 
@@ -12,20 +13,9 @@ import { categoriesModel } from "../../models/categories.model";
 */
 @Injectable()
 export class CategoriesProvider {
-  public category = [];
+  public category: Array<any> = new Array;
 
-  ////////////////////////////////////////////////
-  apiUrl: string = 'https://coffeehubserver.herokuapp.com/';
-  headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-
-  optionsURL = new RequestOptions({
-    headers: this.headers
-  });
-  ////////////////////////////////////////////////
-
-  constructor(public http: Http) {
+  constructor(public http: Http, private routePVD: RouteProvider) {
     console.log('Hello CategoriesProvider Provider');
   }
 
@@ -40,7 +30,7 @@ export class CategoriesProvider {
   // Get Data from  Server
   getData(): Promise<Array<categoriesModel>> {
     return new Promise((resolve, reject) => {
-      this.http.get(this.apiUrl + 'api/categories').map(res => {
+      this.http.get(this.routePVD.apiUrl + 'api/categories').map(res => {
         // console.log(res);
         return res.json();
       }).subscribe(data => {
@@ -52,25 +42,25 @@ export class CategoriesProvider {
   }
 
   // Get Server category
-  getCategory() {
-    this.getData().then((data) => {
-      // console.log("CATE : " + JSON.stringify(data));
-      let cat, sub: Array<any> = new Array, put: object, subid;
-      for (var index = 0; index < data.length; index++) {
-        cat = data[index].name;
-        for (var index1 = 0; index1 < data[index].subcate.length; index1++) {
-          sub.push({ subcate: data[index].subcate[index1].subname, _id: data[index].subcate[index1]._id });
+  getCategory(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.getData().then((data) => {
+        // console.log("CATE : " + JSON.stringify(data));
+        let cat, sub: Array<any> = new Array, put: object, subid;
+        for (var index = 0; index < data.length; index++) {
+          cat = data[index].name;
+          for (var index1 = 0; index1 < data[index].subcate.length; index1++) {
+            sub.push({ subcate: data[index].subcate[index1].subname, _id: data[index].subcate[index1]._id });
+          }
+          put = { cate: cat, subcate: sub };
+          this.category.push(put);
         }
-        put = { cate: cat, subcate: sub };
-        this.category.push(put);
-      }
-      console.log("Cate : " + JSON.stringify(this.category));
-    }).catch((err) => {
-      console.log("Error get Cate : " + err);
-    });
-    return this.category;
+        // console.log("Cate : " + JSON.stringify(this.category));
+      },(err) => { reject(console.log("Error get Cate : " + err));});
+      
+      resolve(this.category);
+    })
   }
-
 
 
   private handleError(error: any): Promise<any> {

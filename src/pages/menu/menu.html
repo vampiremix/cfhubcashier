@@ -15,16 +15,16 @@
 
 <ion-content no-bounce>
   <div>
-    <ion-segment [(ngModel)]="categoriesSelect">
-      <ion-segment-button [value]="cates.cate" class="SegmentSize" *ngFor="let cates of categoriesPVD.category" >
-        {{cates.cate}}
+    <ion-segment [(ngModel)]="category">
+      <ion-segment-button value="Drink" class="SegmentSize">
+        DRINK
       </ion-segment-button>
-      <!-- <ion-segment-button value="Dessert" class="SegmentSize">
+      <ion-segment-button value="Dessert" class="SegmentSize">
         DESSERT
       </ion-segment-button>
       <ion-segment-button value="Food" class="SegmentSize">
-        FOODs
-      </ion-segment-button> -->
+        FOOD
+      </ion-segment-button>
     </ion-segment>
   </div>
   <ion-grid no-padding>
@@ -34,7 +34,7 @@
           <ion-grid [ngSwitch]="category" no-padding>
             <ion-row *ngSwitchCase="'Drink'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_drink" no-padding>
-                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
                   <!-- <preload-image  [src]="item.image[0].url" ></preload-image>Ç -->
                   <img [src]="item.image[0]" />
                   <ion-row>
@@ -47,7 +47,7 @@
 
             <ion-row *ngSwitchCase="'Dessert'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_dessert" no-padding>
-                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
                     <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
@@ -59,10 +59,10 @@
 
             <ion-row *ngSwitchCase="'Food'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_food" no-padding>
-                <ion-card class="card-background-page" no-padding (click)="addtoOrder(item)">
+                <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col  class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
                     <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
                   </ion-row>
                 </ion-card>
@@ -82,7 +82,7 @@
           </ion-list-header>
           <ion-scroll scrollY class="scrollHeight2">
             <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
-            <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
+              <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
               <ion-item>
                 <ion-row align-items-center>
                   <ion-col align-self-center>

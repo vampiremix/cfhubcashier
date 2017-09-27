@@ -1,5 +1,7 @@
+import { ProductsViewModel, priceArrModel } from "./products.model";
+
 export class OrdersModel {
-    item: Array<itemArray>;
+    items: Array<itemArray>;
     promotion : string;
     shop: string; //ref Shop
     date: string;
@@ -16,8 +18,9 @@ export class OrdersModel {
 }
 
 export class itemArray {
-    product : string;
+    product : ProductsViewModel = new ProductsViewModel();
     qty: number;
+    selectedPrice: priceArrModel = new priceArrModel();
     // sweetness: string;
     // degrees: string;
 }

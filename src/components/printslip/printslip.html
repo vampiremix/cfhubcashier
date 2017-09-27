@@ -1,0 +1,20 @@
+<!-- Generated template for the PrintslipComponent component -->
+<div *ngIf="order.item">
+
+  <div *ngFor="let ord of order.item">
+    <p>{{ord.amount}}</p>
+
+  </div>
+
+  <!-- <ion-item *ngFor="let ord of order.item">
+    <ion-row align-items-center>
+      <ion-col align-self-center>
+        <h2>{{ord.name}}</h2>
+      </ion-col>
+      <ion-col text-right>
+        {{ord.netprice}}.-
+      </ion-col>
+    </ion-row>
+  </ion-item> -->
+
+</div>

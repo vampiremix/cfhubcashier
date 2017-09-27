@@ -1,0 +1,11 @@
+<div>
+  <ion-grid class="gridHeight">
+    <ion-row>
+      <ion-col class="border"  *ngFor="let item of itemCate.data.price; let i = index" text-center (click)="selectSize(item)">
+        <img src="{{picIcon[i]}}" alt="" class="imageHeight">
+        <h3>{{item.type}}</h3>
+        <h3>{{item.netprice}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

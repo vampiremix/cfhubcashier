@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Events, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Events, AlertController, ToastController } from 'ionic-angular';
 import { OrdersProvider } from '../../providers/orders/orders';
 import { promoArray } from '../../models/promotions.model';
 import { PromotionsProvider } from '../../providers/promotions/promotions';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Printer, PrintOptions } from '@ionic-native/printer';
+import { OrdersModel } from '../../models/orders.model';
 
 /**
  * Generated class for the CalculatePage page.
@@ -22,6 +24,7 @@ export class CalculatePage {
   public total = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
+  public useOrder: OrdersModel = new OrdersModel();
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private ordersPVD: OrdersProvider,
@@ -29,9 +32,12 @@ export class CalculatePage {
     public events: Events,
     public alertCtrl: AlertController,
     private promotionsPVD: PromotionsProvider,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private printer: Printer,
+    public toastCtrl: ToastController,
 
   ) {
+    this.useOrder = this.ordersPVD.orderSend;
   }
 
   ionViewDidLoad() {
@@ -108,7 +114,7 @@ export class CalculatePage {
     for (let i = 0; i < this.ordersPVD.order.length; i++) {
       console.log("Qty. : " + parseInt(this.ordersPVD.order[i].qty));
       // let totalsum = parseInt(this.ordersPVD.order[i].qty) * parseInt(this.ordersPVD.order[i].price);
-     this.total += parseInt(this.ordersPVD.order[i].price);
+      this.total += parseInt(this.ordersPVD.order[i].price);
       // this.total += totalsum;
       // console.log("this.summary.total : " + this.total);
       console.log("totalsum : " + this.total);
@@ -198,5 +204,50 @@ export class CalculatePage {
     // alert.present();
   }
 
+  print() {
+    this.ordersPVD.preparingOrders(600, 222, 33);
 
+    let printSlip = document.getElementById('print');
+    // console.log(test);
+    let options: PrintOptions = {
+      name: 'Slip',
+      printerId: '',
+      duplex: true,
+      landscape: false,
+      grayscale: true
+    };
+
+    this.printer.check().then((data) => {
+      alert("OK : " + JSON.stringify(data));
+      this.printer.print(printSlip, options).then((onSuccess) => {
+        let toast = this.toastCtrl.create({
+          message: 'Slip printed!',
+          duration: 3000,
+          position: 'middle',
+          cssClass: 'toasttextcenter'
+        });
+        toast.present();
+      }
+        , (onError) => {
+          alert("Error printing slip!");
+        });
+    }, (error) => {
+      alert('Error ' + JSON.stringify(error));
+    });
+    // this.printer.isAvailable().then((isOK)=>{alert("OK" + isOK)},(not)=>{alert("NOT! : " + not) });
+    // this.printer.check().then((OnSuc) => {
+    // alert("WWW");
+    // this.printer.pick().then((PickSuc) => { alert("SSS :" + PickSuc) }, (Error) => { alert("Error :" + Error) })
+    // }, (OnRej) => { alert("Err : " + OnRej) });
+    // this.printer.isAvailable().then((onSuccess) => {
+
+
+
+
+    // }, (onError) => { alert("Cannot find printter" + onError) });
+
+
+
+
+  }
 }

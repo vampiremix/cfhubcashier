@@ -9,10 +9,14 @@
   <ion-navbar>
     <ion-title>calculate</ion-title>
     <ion-buttons end align-self-center>
-        <button ion-button icon-end>Cup coin
+      <button ion-button icon-end (click)="print()">Print
+            <ion-icon name="md-print"></ion-icon> 
+        </button>
+      <span class="fontbar">|</span>
+      <button ion-button icon-end>Cup coin
             <ion-icon name="ios-cafe-outline"></ion-icon> 
         </button>
-        <span class="fontbar">|</span>
+      <span class="fontbar">|</span>
       <button ion-button icon-end (click)="inputPromotion()">Promotion
           <ion-icon name="md-barcode"></ion-icon> 
         </button>
@@ -59,8 +63,12 @@
         </ion-list>
       </ion-col>
       <ion-col col-8 class="colPosition">
+        
         <ion-row no-padding>
           <ion-col no-padding>
+              <div id="print">
+                  <printslip [order]="useOrder"></printslip>
+              </div>
             <ion-list no-padding sliding>
               <ion-item>
                 <ion-row>
@@ -129,4 +137,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  
 </ion-content>

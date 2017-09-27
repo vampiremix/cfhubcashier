@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { OrdersModel } from '../../models/orders.model';
+import { RouteProvider } from '../route/route';
 
 /*
   Generated class for the OrdersProvider provider.
@@ -13,7 +14,7 @@ import { OrdersModel } from '../../models/orders.model';
 export class OrdersProvider {
   public order = [];
   public orderSend: OrdersModel = new OrdersModel();
-  constructor(public http: Http) {
+  constructor(public http: Http, private routePVD: RouteProvider) {
     console.log('Hello OrdersProvider Provider');
   }
 
@@ -23,7 +24,8 @@ export class OrdersProvider {
     console.log("Start order");
     // console.log(JSON.stringify(this.order));
     let user = JSON.parse(window.localStorage.getItem('user'));
-    this.orderSend.shop = user.shop_id;  // must get shop from local storage when inital stage
+    this.orderSend.shop = "SSSSS";
+    // this.orderSend.shop = user.shop_id;  // must get shop from local storage when inital stage
     this.orderSend.date = Date();
     this.orderSend.net_amount = total;
     this.orderSend.change = change;
@@ -35,12 +37,12 @@ export class OrdersProvider {
         product_id: this.order[_i]._id,
         amount: this.order[_i].price,
         qty: this.order[_i].qty,
-        sweetness: this.order[_i].category[0].subcate == "coffee" ? this.order[_i].sweetness : null,
-        degrees: this.order[_i].category[0].subcate == "coffee" ? this.order[_i].degrees : null
+        // sweetness: this.order[_i].category[.subcate == "coffee" ? this.order[_i].sweetness : null,
+        // degrees: this.order[_i].category[0].subcate == "coffee" ? this.order[_i].degrees : null
       });
 
     }
-    this.orderSend.item = items;
+    this.orderSend.items = items;
     console.log(">>>>>>>>" + JSON.stringify(this.orderSend));
   }
 }

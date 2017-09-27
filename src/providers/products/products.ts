@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { ProductsViewModel } from '../../models/products.model';
 import 'rxjs/add/operator/toPromise';
+import { RouteProvider } from '../route/route';
 /*
   Generated class for the ProductsProvider provider.
 
@@ -12,18 +13,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ProductsProvider {
 
-  ////////////////////////////////////////////////
-  apiUrl: string = 'https://coffeehubserver.herokuapp.com/';
-  headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-
-  optionsURL = new RequestOptions({
-    headers: this.headers
-  });
-  ////////////////////////////////////////////////
-
-  constructor(public http: Http) {
+  constructor(public http: Http ,private routePVD: RouteProvider) {
     console.log('Hello ProductsProvider Provider');
   }
 
@@ -38,11 +28,24 @@ export class ProductsProvider {
   // Get Data from  Server
   getDataBycate(cateID): Promise<ProductsViewModel> {
     return new Promise((resolve, reject) => {
-      this.http.get(this.apiUrl + 'api/products/cate/' + cateID).map(res => {
+      this.http.get(this.routePVD.apiUrl + 'api/products/cate/' + cateID).map(res => {
         // console.log(res);
         return res.json();
       }).subscribe(data => {
         resolve(data);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
+
+  getproduct(shopid): Promise<Array<ProductsViewModel>> {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.routePVD.apiUrl + 'api/products/').map(res => {
+        // console.log(res);
+        return res.json();
+      }).subscribe(data => {
+        resolve(data as Array<ProductsViewModel>);
       }, (error) => {
         reject(error);
       });

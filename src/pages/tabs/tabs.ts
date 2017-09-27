@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
+// import { MenuPage } from "../menu/menu";
+// import { OrderListPage } from '../order-list/order-list';
+// import { AccountPage } from '../account/account';
+// import { NewsPromotionsPage } from "../news-promotions/news-promotions";
 /**
  * Generated class for the TabsPage tabs.
  *
@@ -15,10 +19,10 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class TabsPage {
 
-  menuRoot = 'MenuPage'
-  orderListRoot = 'OrderListPage'
-  newsPromotionsRoot = 'NewsPromotionsPage'
-  accountRoot = 'AccountPage'
+  menuRoot = 'MenuPage';
+  orderListRoot = 'OrderListPage';
+  newsPromotionsRoot = 'NewsPromotionsPage';
+  accountRoot = 'AccountPage';
 
 
   constructor(public navCtrl: NavController) {}

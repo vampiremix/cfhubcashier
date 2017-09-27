@@ -7,10 +7,18 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.cyber.coffeehubcashier"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.cyber.coffeehubcashier"
+        },
+        "cordova-plugin-printer": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
         "cordova-plugin-splashscreen": {
@@ -25,13 +33,11 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
-        "phonegap-plugin-barcodescanner": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
+        "mx.ferreyra.callnumber": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
-        "cordova-plugin-camera": {
+        "phonegap-plugin-barcodescanner": {
             "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         }
     },

@@ -19,8 +19,9 @@ export class PopOverComponent {
   constructor(private viewCtrl: ViewController, private navParam: NavParams,
     private ordersPVD: OrdersProvider,
     private navCtrl: NavController) {
-    // let aa = viewCtrl.getNavParams();
+    let aa = viewCtrl.getNavParams();
     console.log('Hello PopOverComponent Component');
+    alert(aa);
     // this.opts.degrees = aa.data.degrees;
     // this.opts.sweetness = aa.data.sweetness;
     // alert("ss : " + JSON.stringify(aa));

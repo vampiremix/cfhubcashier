@@ -18,7 +18,15 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CategoriesProvider } from '../providers/categories/categories';
 import { CameraProvider } from '../providers/camera/camera';
 
-import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import { Camera } from '@ionic-native/camera';
+import { Printer, PrintOptions } from '@ionic-native/printer';
+
+import { RouteProvider } from '../providers/route/route';
+import { InitailizeProvider } from '../providers/initailize/initailize';
+
+import { PrintslipComponent } from "../components/printslip/printslip";
+import { SelectCupComponent } from '../components/select-cup/select-cup';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     TabsPage,
     PopOverComponent,
     PreloadImage,
-    CalculatePage
+    CalculatePage,
+    PrintslipComponent,
+    SelectCupComponent
   ],
   imports: [
     HttpModule,
@@ -38,7 +48,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     MyApp,
     TabsPage,
     PopOverComponent,
-    CalculatePage
+    CalculatePage,
+    PrintslipComponent,
+    SelectCupComponent
   ],
   providers: [
     StatusBar,
@@ -50,7 +62,10 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     BarcodeScanner,
     CategoriesProvider,
     CameraProvider,
-    Camera
+    Camera,
+    RouteProvider,
+    InitailizeProvider,
+    Printer
   ]
 })
 export class AppModule { }

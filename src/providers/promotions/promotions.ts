@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Events } from 'ionic-angular';
 import { PromotionsModel } from '../../models/promotions.model';
+import { RouteProvider } from '../route/route';
 
 /*
   Generated class for the PromotionsProvider provider.
@@ -14,7 +15,8 @@ import { PromotionsModel } from '../../models/promotions.model';
 export class PromotionsProvider {
   public promotionsData: PromotionsModel = new PromotionsModel();
   constructor(public http: Http,
-  public events : Events
+  public events : Events,
+  private routePVD: RouteProvider
   ) {
     console.log('Hello PromotionsProvider Provider');
   }
