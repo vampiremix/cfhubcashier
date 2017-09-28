@@ -28,6 +28,7 @@ import { InitailizeProvider } from '../providers/initailize/initailize';
 import { PrintslipComponent } from "../components/printslip/printslip";
 import { SelectCupComponent } from '../components/select-cup/select-cup';
 
+
 @NgModule({
   declarations: [
     MyApp,

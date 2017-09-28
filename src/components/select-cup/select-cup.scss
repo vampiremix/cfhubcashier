@@ -1,15 +1,27 @@
 select-cup {
-    .gridHeight {
-        height: 200px;
+    .head-color {
+        background-color: #875d49;
+        color: white;
+        height: 3rem;
+    }
+    .grid-height {
+        width: 100%;
+        height: 240px;
         background-color: beige;
         border: think solid black;
     }
-    .imageHeight{
+    .image-height {
         height: 75px;
     }
-    .border{
-        margin:5px; 
-       border: solid #875d49;
-       border-radius: 15px;
+    .border {
+        margin: 5px;
+        border: solid #875d49;
+        border-radius: 15px;
+    }
+    .row-size{
+        height: 3rem;
+    }
+    .font-size{
+        font-size: 18px;
     }
 }

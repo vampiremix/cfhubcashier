@@ -41,18 +41,16 @@
           <ion-scroll scrollY class="scrollHeight2">
             <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
               <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
-              <ion-item>
-                <ion-row align-items-center>
-                  <ion-col align-self-center>
-                    <h2>{{ord.name}}</h2>
-                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Degrees : {{ord.degrees}}</p> -->
-                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Sweetness : {{ord.sweetness}}</p> -->
-                  </ion-col>
-                  <ion-col text-right>
-                    {{ord.price}}.-
-                  </ion-col>
-                </ion-row>
-              </ion-item>
+                  <ion-item>
+                      <ion-row align-items-center>
+                        <ion-col align-self-center>
+                          <h2>{{ord.product.name}} <span *ngIf="ord.product.category.name == 'Drink'">({{ord.selectedPrice.type}})</span></h2>
+                        </ion-col>
+                        <ion-col text-right>
+                          {{ord.selectedPrice.netprice}}.-
+                        </ion-col>
+                      </ion-row>
+                    </ion-item>
               <ion-item-options side="right">
                 <button ion-button color="danger" (click)="deleteOrder(ord._id)">
                 <ion-icon name="md-close-circle"></ion-icon>
@@ -66,22 +64,20 @@
         
         <ion-row no-padding>
           <ion-col no-padding>
-              <div id="print">
-                  <printslip [order]="useOrder"></printslip>
-              </div>
+             
             <ion-list no-padding sliding>
               <ion-item>
                 <ion-row>
                   <ion-col text-left class="fontBold">Subtotal : </ion-col>
-                  <ion-col text-right margin-right>{{total}}</ion-col>
+                  <ion-col text-right margin-right>{{sumProduct}}</ion-col>
                   <ion-col text-left class="fontBold">Discount : </ion-col>
-                  <ion-col text-right>999</ion-col>
+                  <ion-col text-right>{{discount}}</ion-col>
                 </ion-row>
               </ion-item>
               <ion-item>
                 <ion-row>
                   <ion-col text-left class="fontBold">Total : </ion-col>
-                  <ion-col text-right>999</ion-col>
+                  <ion-col text-right>{{total}}</ion-col>
                 </ion-row>
               </ion-item>
               <ion-item>
@@ -131,11 +127,14 @@
         </ion-row>
         <ion-row no-padding>
           <ion-col text-center>
-            <button ion-button round class="btnCalColor">DONE</button>
+            <button ion-button round class="btnCalColor" (click)="calculatePayment()">DONE</button>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
+   
   </ion-grid>
-  
+  <div id="print">
+      <printslip [order]="useOrder"></printslip>
+  </div>
 </ion-content>

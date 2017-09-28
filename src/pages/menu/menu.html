@@ -1,17 +1,8 @@
-<!--
-  Generated template for the MenuPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Menu</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content no-bounce>
   <div>
@@ -35,11 +26,9 @@
             <ion-row *ngSwitchCase="'Drink'" no-padding>
               <ion-col col-3 *ngFor="let item of prod_drink" no-padding>
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
-                  <!-- <preload-image  [src]="item.image[0].url" ></preload-image>Ç -->
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
-                    <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
+                    <ion-col class="card-title" text-nowrap text-center>{{item.name}}</ion-col>
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -50,8 +39,7 @@
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
-                    <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
+                    <ion-col class="card-title" text-nowrap text-center>{{item.name}}</ion-col>
                   </ion-row>
                 </ion-card>
               </ion-col>
@@ -62,7 +50,7 @@
                 <ion-card class="card-background-page" no-padding (click)="addtoOrder(ev,item)">
                   <img [src]="item.image[0]" />
                   <ion-row>
-                    <ion-col class="card-title" text-nowrap>{{item.name}}</ion-col>
+                    <ion-col class="card-title" text-nowrap text-center>{{item.name}}</ion-col>
                     <!-- <ion-col text-right>{{item.price}}.-</ion-col> -->
                   </ion-row>
                 </ion-card>
@@ -81,22 +69,20 @@
                 </button>
           </ion-list-header>
           <ion-scroll scrollY class="scrollHeight2">
-            <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
-              <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
+            <ion-item-sliding *ngFor="let ord of ordersPVD.order; let i = index">
+              <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)"> -->
               <ion-item>
                 <ion-row align-items-center>
                   <ion-col align-self-center>
-                    <h2>{{ord.name}}</h2>
-                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Degrees : {{ord.degrees}}</p> -->
-                    <!-- <p *ngIf="ord.category[0].subcate == 'coffee'">Sweetness : {{ord.sweetness}}</p> -->
+                    <h2>{{ord.product.name}} <span *ngIf="ord.product.category.name == 'Drink'">({{ord.selectedPrice.type}})</span></h2>
                   </ion-col>
                   <ion-col text-right>
-                    {{ord.prices}}.-
+                    {{ord.selectedPrice.netprice}}.-
                   </ion-col>
                 </ion-row>
               </ion-item>
               <ion-item-options side="right">
-                <button ion-button color="danger" (click)="deleteOrder(ord._id)">
+                <button ion-button color="danger" (click)="deleteOrder(i)">
                   <ion-icon name="md-close-circle"></ion-icon>
                 </button>
               </ion-item-options>

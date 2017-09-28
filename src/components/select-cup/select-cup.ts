@@ -12,14 +12,18 @@ import { ViewController, NavParams } from 'ionic-angular';
   templateUrl: 'select-cup.html'
 })
 export class SelectCupComponent {
-public picIcon = ["https://openclipart.org/image/2400px/svg_to_png/104185/1294538687.png","https://cdn0.iconfinder.com/data/icons/travel-line-icons-vol-1/48/015-512.png","https://image.flaticon.com/icons/png/512/112/112406.png"]
-public itemCate;
+  public picIcon = [
+    { name: "hot", icon: "https://openclipart.org/image/2400px/svg_to_png/104185/1294538687.png" },
+    { name: "iced", icon: "https://cdn0.iconfinder.com/data/icons/travel-line-icons-vol-1/48/015-512.png" },
+    { name: "frappe", icon: "https://image.flaticon.com/icons/png/512/112/112406.png" }];
+  public itemCate;
   constructor(private viewCtrl: ViewController, private navParam: NavParams) {
     console.log('Hello SelectCupComponent Component');
     this.itemCate = this.viewCtrl.getNavParams();
-    console.log("Com Data : " + JSON.stringify(this.itemCate));
+    // console.log("Com Data : " + JSON.stringify(this.itemCate));
   }
-  selectSize(itemSelected){
-alert("sel : " + JSON.stringify(itemSelected));
+  selectSize(itemSelected) {
+    this.viewCtrl.dismiss(itemSelected);
+    // alert("sel : " + JSON.stringify(itemSelected));
   }
 }

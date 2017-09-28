@@ -1,43 +1,59 @@
-{
-    "_id": "59ba6b1afc3b9088430b3be6",
-    "category": {
-        "_id": "59ba5cff047a9e980aab8da1",
-        "description": "drink category",
-        "image": [
-            "https://www.thecocktailproject.com/sites/default/files/basic-brand-cuba-libre.jpg",
-            "https://www.thecocktailproject.com/sites/default/files/8236_Jim_Beam_Bourbon_Milk_Punch_Beauty-3939_Thumb.jpg",
-            "https://static1.squarespace.com/static/54c5468de4b039d9590f4251/5853e89c893fc05274762690/58542f1cd2b8575a1dddba5f/1482760930911/IMG_6805-2.jpg",
-            "https://static1.squarespace.com/static/551446bee4b0959b1053f9f7/58051cf8f7e0abd6e8f275ef/58051e3f2e69cfedd1fc6c3c/1476730614403/IMG_1037.JPG"
-        ],
-        "name": "Drink"
-    },
-    "description": "Espresso good taste and smell",
-    "subcate": "59ba5cff047a9e980aab8da5",
-    "price": [
-        {
-            "_id": "59ba6b1afc3b9088430b3be9",
+[
+    {
+        "product": {
+            "_id": "59ba6b7bfc3b9088430b3bee",
+            "category": {
+                "_id": "59ba5cff047a9e980aab8da1",
+                "description": "drink category",
+                "image": [
+                    "https://www.thecocktailproject.com/sites/default/files/basic-brand-cuba-libre.jpg",
+                    "https://www.thecocktailproject.com/sites/default/files/8236_Jim_Beam_Bourbon_Milk_Punch_Beauty-3939_Thumb.jpg",
+                    "https://static1.squarespace.com/static/54c5468de4b039d9590f4251/5853e89c893fc05274762690/58542f1cd2b8575a1dddba5f/1482760930911/IMG_6805-2.jpg",
+                    "https://static1.squarespace.com/static/551446bee4b0959b1053f9f7/58051cf8f7e0abd6e8f275ef/58051e3f2e69cfedd1fc6c3c/1476730614403/IMG_1037.JPG"
+                ],
+                "name": "Drink"
+            },
+            "description": "Cappuccino good taste and smell",
+            "subcate": "59ba5cff047a9e980aab8da5",
+            "price": [
+                {
+                    "_id": "59ba6b7bfc3b9088430b3bf1",
+                    "price": 45,
+                    "type": "hot",
+                    "discount": 0,
+                    "netprice": 45
+                },
+                {
+                    "_id": "59ba6b7bfc3b9088430b3bf0",
+                    "price": 55,
+                    "type": "iced",
+                    "discount": 0,
+                    "netprice": 55
+                },
+                {
+                    "_id": "59ba6b7bfc3b9088430b3bef",
+                    "price": 65,
+                    "type": "frappe",
+                    "discount": 0,
+                    "netprice": 65
+                }
+            ],
+            "image": [
+                "http://www.dilettante.com/resize/images/cafe/MenuEspressoCoffeeTea/Cappuccino.jpg?bw=575&w=575"
+            ],
+            "name": "Cappuccino",
+            "opts": {
+                "showBackdrop": true,
+                "enableBackdropDismiss": true
+            }
+        },
+        "qyt": 1,
+        "selectedPrice": {
+            "_id": "59ba6b7bfc3b9088430b3bf1",
             "price": 45,
             "type": "hot",
             "discount": 0,
             "netprice": 45
-        },
-        {
-            "_id": "59ba6b1afc3b9088430b3be8",
-            "price": 55,
-            "type": "iced",
-            "discount": 0,
-            "netprice": 55
-        },
-        {
-            "_id": "59ba6b1afc3b9088430b3be7",
-            "price": 65,
-            "type": "frappe",
-            "discount": 0,
-            "netprice": 65
         }
-    ],
-    "image": [
-        "http://www.dilettante.com/resize/images/cafe/MenuEspressoCoffeeTea/Espresso-Double-Shot.jpg?bw=575&w=575"
-    ],
-    "name": "Espresso"
-}
+    }
+]

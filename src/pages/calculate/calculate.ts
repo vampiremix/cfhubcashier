@@ -21,7 +21,9 @@ import { OrdersModel } from '../../models/orders.model';
 })
 export class CalculatePage {
   public getpromotion: promoArray;
+  public sumProduct = 0;
   public total = 0;
+  public discount = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
   public useOrder: OrdersModel = new OrdersModel();
@@ -37,11 +39,12 @@ export class CalculatePage {
     public toastCtrl: ToastController,
 
   ) {
-    this.useOrder = this.ordersPVD.orderSend;
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculatePage');
+    this.calculate();
   }
 
   clearList() {
@@ -92,16 +95,24 @@ export class CalculatePage {
       alert('Please recieve money from customer!');
     } else if (parseInt(this.cashReceive) < this.total) {
       alert('Cash is not enough for pay!');
+      loading.dismiss();
     } else {
       // Send Total amount , cash from cus , cash change
       let cashChange = parseInt(this.cashReceive) - this.total;
-      console.log("total : " + this.total + "\n cash : " + this.cashReceive + "\n cashChange : " + cashChange);
-      this.ordersPVD.preparingOrders(this.total, this.cashReceive, cashChange);
+      // console.log("total : " + this.total + "\n cash : " + this.cashReceive + "\n cashChange : " + cashChange);
+      this.ordersPVD.preparingOrders(this.sumProduct, this.discount, this.total, this.cashReceive, cashChange, this.getpromotion).then((data) => {
+        loading.dismiss();
+        this.useOrder = data;
+        console.log("TEST : ", this.useOrder);
+        this.printSlipOrder();
+      }
 
+      );
+      // Send param 4 set 1.sumProduct(not include vat and promotion), 2. total(sumproduct include vat and promotion),
+      // 3.cashReceive(money from customer), 4.cashChange(summery of total- cash), 5. promotion
 
       // this.navCtrl.push(ReceiptPage);
     }
-
   }
 
   cancelOrder() {
@@ -112,9 +123,9 @@ export class CalculatePage {
   calculate() {
     this.total = parseInt('0');
     for (let i = 0; i < this.ordersPVD.order.length; i++) {
-      console.log("Qty. : " + parseInt(this.ordersPVD.order[i].qty));
       // let totalsum = parseInt(this.ordersPVD.order[i].qty) * parseInt(this.ordersPVD.order[i].price);
-      this.total += parseInt(this.ordersPVD.order[i].price);
+      this.total += parseInt(this.ordersPVD.order[i].selectedPrice.netprice);
+      this.sumProduct += parseInt(this.ordersPVD.order[i].selectedPrice.netprice);
       // this.total += totalsum;
       // console.log("this.summary.total : " + this.total);
       console.log("totalsum : " + this.total);
@@ -130,6 +141,7 @@ export class CalculatePage {
         this.total = this.total - this.getpromotion.discountValue;
       }
     }
+    this.sumProduct = this.addcomma(this.sumProduct);
     this.total = this.addcomma(this.total);
   }
 
@@ -141,6 +153,7 @@ export class CalculatePage {
     }
     this.cashReceiveShow = this.addcomma(this.cashReceive);
   }
+
   addcomma(cashReceive) {
     return cashReceive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -204,9 +217,7 @@ export class CalculatePage {
     // alert.present();
   }
 
-  print() {
-    this.ordersPVD.preparingOrders(600, 222, 33);
-
+  printSlipOrder() {
     let printSlip = document.getElementById('print');
     // console.log(test);
     let options: PrintOptions = {
@@ -218,7 +229,7 @@ export class CalculatePage {
     };
 
     this.printer.check().then((data) => {
-      alert("OK : " + JSON.stringify(data));
+      // alert("OK : " + JSON.stringify(data));
       this.printer.print(printSlip, options).then((onSuccess) => {
         let toast = this.toastCtrl.create({
           message: 'Slip printed!',

@@ -1,8 +1,14 @@
 <div>
-  <ion-grid class="gridHeight">
+  <ion-grid class="grid-height">
+    <ion-row no-padding class="row-size">
+      <ion-col col-12 text-center no-padding class="head-color">
+        <div class="font-size" align-items-center>{{itemCate.data.name}}</div>
+      </ion-col>
+    </ion-row>
     <ion-row>
-      <ion-col class="border"  *ngFor="let item of itemCate.data.price; let i = index" text-center (click)="selectSize(item)">
-        <img src="{{picIcon[i]}}" alt="" class="imageHeight">
+      <ion-col class="border" *ngFor="let item of itemCate.data.price; let i = index" text-center (click)="selectSize(item)">
+        <div *ngFor="let icon of picIcon"><img *ngIf="icon.name === item.type" [src]="icon.icon" alt="" class="image-height"></div>
+
         <h3>{{item.type}}</h3>
         <h3>{{item.netprice}}</h3>
       </ion-col>

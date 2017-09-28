@@ -1,20 +1,84 @@
 <!-- Generated template for the PrintslipComponent component -->
-<div *ngIf="order.item">
-
-  <div *ngFor="let ord of order.item">
-    <p>{{ord.amount}}</p>
-
-  </div>
-
-  <!-- <ion-item *ngFor="let ord of order.item">
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <h2>{{ord.name}}</h2>
-      </ion-col>
-      <ion-col text-right>
-        {{ord.netprice}}.-
-      </ion-col>
-    </ion-row>
-  </ion-item> -->
-
-</div>
+  <table style="width:20%" border="0" cellspacing="0" cellpadding="0" *ngIf="order.items">
+    <tr>
+      <td></td>
+      <td>Receipt</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>{{order.shop}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Queue : {{order.queue}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Receipt No. : {{order.receiptNo}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Date : {{dateStr}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Customer : {{order.customer}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>=================================</td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let ord of order.items">
+      <td>{{ord.product.name}}</td>
+      <td>{{ord.qty}}</td>
+      <td>{{ord.selectedPrice.netprice}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>=================================</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sub total : </td>
+      <td></td>
+      <td>{{order.amount}}</td>
+    </tr>
+    <tr>
+      <td>Discount : </td>
+      <td></td>
+      <td *ngIf="order.promotion">{{order.discount}}</td>
+      <td *ngIf="!order.promotion">0</td>
+    </tr>
+    <tr>
+      <td>Total : </td>
+      <td></td>
+      <td>{{order.net_amount}}</td>
+    </tr>
+    <tr>
+      <td>Receive : Cash : {{order.cash}}</td>
+      <td></td>
+      <td>{{order.change}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>=================================</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Thank you.</td>
+      <td></td>
+    </tr>
+  </table>

@@ -1,11 +1,13 @@
 import { ProductsViewModel, priceArrModel } from "./products.model";
+import { promoArray } from "./promotions.model";
 
 export class OrdersModel {
     items: Array<itemArray>;
-    promotion : string;
+    promotion : promoArray;
     shop: string; //ref Shop
-    date: string;
+    date: Date;
     amount: number;
+    discount: number;
     net_amount: number;
     receiptNo: string;
     change: number;

@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 /**
  * Generated class for the PrintslipComponent component.
  *
@@ -10,12 +10,12 @@ import { Component,Input } from '@angular/core';
   templateUrl: 'printslip.html'
 })
 export class PrintslipComponent {
-@Input() order: any;
+  @Input() order: any;
   text: string;
-
+  dateStr: string;
   constructor() {
     console.log('Hello PrintslipComponent Component');
-    this.text = 'Hello World';
+   let d = new Date();
+      this.dateStr =  d.getDate() +'/'+ d.getMonth() + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getUTCMinutes();
   }
-
 }
