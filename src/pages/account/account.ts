@@ -16,17 +16,22 @@ import { CameraProvider } from '../../providers/camera/camera';
 })
 export class AccountPage {
   // profileData: ProfileModel = new ProfileModel();
-  chosenPicture = "https://scontent.fbkk5-8.fna.fbcdn.net/v/t1.0-9/21314397_1410273562383607_9014405429036635307_n.jpg?oh=00bac870110c20fe9fa3af26eb47fb63&oe=5A22E023";
+  chosenPicture;
   enableNotifications: any;
   languages = ['English', 'Portuguese', 'French'];
   isenabled: boolean = true;
-  Edit ="create";
+  Edit = "create";
+  public user;
+  public shop;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
     public platform: Platform,
     public loadingCtrl: LoadingController,
     public cameraPVD: CameraProvider
   ) {
+    this.shop = JSON.parse(window.localStorage.getItem('shop'));
+    this.user = JSON.parse(window.localStorage.getItem('user'));
+    this.chosenPicture = this.shop.logo;
   }
 
   ionViewDidLoad() {

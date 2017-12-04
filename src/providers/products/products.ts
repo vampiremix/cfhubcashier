@@ -13,7 +13,7 @@ import { RouteProvider } from '../route/route';
 @Injectable()
 export class ProductsProvider {
 
-  constructor(public http: Http ,private routePVD: RouteProvider) {
+  constructor(public http: Http, private routePVD: RouteProvider) {
     console.log('Hello ProductsProvider Provider');
   }
 
@@ -41,7 +41,8 @@ export class ProductsProvider {
 
   getproduct(shopid): Promise<Array<ProductsViewModel>> {
     return new Promise((resolve, reject) => {
-      this.http.get(this.routePVD.apiUrl + 'api/products/').map(res => {
+      // this.http.get(this.routePVD.apiUrl + 'api/products/').map(res => {
+      this.http.get(this.routePVD.apiUrl + 'api/products/shop/' + shopid).map(res => {
         // console.log(res);
         return res.json();
       }).subscribe(data => {

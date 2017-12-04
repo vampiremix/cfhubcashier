@@ -1,0 +1,15 @@
+<div>
+  <ion-grid class="grid-height">
+    <ion-row no-padding class="row-size">
+      <ion-col col-12 text-center no-padding class="head-color">
+        <div class="font-size" align-items-center>Select Shop</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="border" *ngFor="let item of shops; let i = index" text-center (click)="selectShop(item)">
+        <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/132000-200.png" alt="" class="image-height">
+        <h3>{{item.name}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

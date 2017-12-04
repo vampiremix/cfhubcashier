@@ -1,3 +1,19 @@
 page-order-list {
-
+    .btnSize {
+        height: 4vh;
+        width: 13vw;
+    }
+    [textOver] {
+        text-overflow: ellipsis;
+        /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    [row-height]{
+        height: auto;
+        
+    }
+    [card-shadow]{
+        box-shadow: 3px 3px 3px #a1a1a1;
+    }
 }

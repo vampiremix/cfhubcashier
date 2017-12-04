@@ -1,13 +1,13 @@
 <!-- Generated template for the PrintslipComponent component -->
-  <table style="width:20%" border="0" cellspacing="0" cellpadding="0" *ngIf="order.items">
+  <table id="print" style="width:33%" border="0" cellspacing="0" cellpadding="0" *ngIf="order.items">
     <tr>
-      <td></td>
+      <td>{{order}}</td>
       <td>Receipt</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
-      <td>{{order.shop}}</td>
+      <td>{{order.shopName}}</td>
       <td></td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@
     <tr>
       <td>Total : </td>
       <td></td>
-      <td>{{order.net_amount}}</td>
+      <td>{{order.netamount}}</td>
     </tr>
     <tr>
       <td>Receive : Cash : {{order.cash}}</td>

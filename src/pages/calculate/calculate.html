@@ -7,12 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>calculate</ion-title>
+    <ion-title>Calculate</ion-title>
     <ion-buttons end align-self-center>
-      <button ion-button icon-end (click)="print()">Print
+      <!-- <button ion-button icon-end (click)="print()">Print
             <ion-icon name="md-print"></ion-icon> 
         </button>
-      <span class="fontbar">|</span>
+      <span class="fontbar">|</span> -->
       <button ion-button icon-end>Cup coin
             <ion-icon name="ios-cafe-outline"></ion-icon> 
         </button>
@@ -41,16 +41,16 @@
           <ion-scroll scrollY class="scrollHeight2">
             <ion-item-sliding *ngFor="let ord of ordersPVD.order" (press)="showOption($event,ord)">
               <!-- <ion-item-sliding *ngFor="let ord of ordersPVD.order"> -->
-                  <ion-item>
-                      <ion-row align-items-center>
-                        <ion-col align-self-center>
-                          <h2>{{ord.product.name}} <span *ngIf="ord.product.category.name == 'Drink'">({{ord.selectedPrice.type}})</span></h2>
-                        </ion-col>
-                        <ion-col text-right>
-                          {{ord.selectedPrice.netprice}}.-
-                        </ion-col>
-                      </ion-row>
-                    </ion-item>
+              <ion-item>
+                <ion-row align-items-center>
+                  <ion-col align-self-center>
+                    <h2>{{ord.product.name}} <span *ngIf="ord.product.category.name == 'Drink'">({{ord.selectedPrice.type}})</span></h2>
+                  </ion-col>
+                  <ion-col text-right>
+                    {{ord.selectedPrice.netprice}}.-
+                  </ion-col>
+                </ion-row>
+              </ion-item>
               <ion-item-options side="right">
                 <button ion-button color="danger" (click)="deleteOrder(ord._id)">
                 <ion-icon name="md-close-circle"></ion-icon>
@@ -61,10 +61,10 @@
         </ion-list>
       </ion-col>
       <ion-col col-8 class="colPosition">
-        
+
         <ion-row no-padding>
           <ion-col no-padding>
-             
+
             <ion-list no-padding sliding>
               <ion-item>
                 <ion-row>
@@ -132,9 +132,5 @@
         </ion-row>
       </ion-col>
     </ion-row>
-   
   </ion-grid>
-  <div id="print">
-      <printslip [order]="useOrder"></printslip>
-  </div>
 </ion-content>

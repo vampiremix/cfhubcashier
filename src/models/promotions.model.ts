@@ -11,7 +11,6 @@ export class promoArray {
     startdate: Date;
     enddate: Date;
     status: string;
-    userCreated: string;
     //log: Array;  not use with cashier;
     shop: string;
 }

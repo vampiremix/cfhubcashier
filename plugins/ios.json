@@ -36,6 +36,9 @@
         "mx.ferreyra.callnumber": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.cyber.coffeehubcashier"
+        },
         "phonegap-plugin-barcodescanner": {
             "CAMERA_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"

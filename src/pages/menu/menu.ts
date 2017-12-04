@@ -30,7 +30,7 @@ export class MenuPage {
   public catlength;
   public state = 1;
   public loading;
-
+  public calModal;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private productsPVD: ProductsProvider,
     private ordersPVD: OrdersProvider,
@@ -40,7 +40,7 @@ export class MenuPage {
     public categoriesPVD: CategoriesProvider,
     public loadingCtrl: LoadingController
   ) {
- 
+
   }
 
   ionViewDidLoad() {
@@ -60,8 +60,8 @@ export class MenuPage {
 
   gotoCalculate() {
     if (this.ordersPVD.order.length) {
-      let profileModal = this.modalCtrl.create(CalculatePage);
-      profileModal.present();
+      this.calModal = this.modalCtrl.create(CalculatePage);
+      this.calModal.present();
     } else {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',
@@ -71,6 +71,10 @@ export class MenuPage {
       });
       toast.present();
     }
+  }
+
+  dissmissCalModal(){
+    this.calModal.dismiss();
   }
 
   addtoOrder(ev, item) {
@@ -83,14 +87,14 @@ export class MenuPage {
         // alert("GET :" + selected);
         if (selected) {
           this.ordersPVD.order.push(
-            { product: item, qty: 1, selectedPrice: selected}
+            { product: item, qty: 1, selectedPrice: selected }
           )
         }
       });
     } else if (item.price.length == 1 && item.category.name !== 'Drink') {
-      
+
       this.ordersPVD.order.push(
-        { product: item, qty: 1, selectedPrice: item.price[0]}
+        { product: item, qty: 1, selectedPrice: item.price[0] }
       );
     }
 
@@ -122,16 +126,19 @@ export class MenuPage {
 
 
   initailze() {
+    let shop = JSON.parse(window.localStorage.getItem("shop"));
+    // alert("Sh: " + JSON.stringify(shop));
     this.presentLoadingDefault();
     console.log("Do initialize");
-
-    this.productsPVD.getproduct("WW").then((data) => {
-
+    this.loading.present();
+    this.productsPVD.getproduct(shop._id).then((data) => {
+      console.log("Data Pro : " , JSON.stringify(data));
       this.prod_drink = data.filter(this.filterProductDrink);
       this.prod_dessert = data.filter(this.filterProductDessert);
       this.prod_food = data.filter(this.filterProductFood);
-    });
-    // this.loading.present();
+      this.loading.dismiss();
+    }).catch((err) => { this.loading.dismiss(); alert("Error get product : " + err); });
+
     // this.categoriesPVD.getCategory().then(data2 => {
     //   console.log("cate : " + data2);
 
@@ -140,10 +147,10 @@ export class MenuPage {
 
 
   }
-  
+
   presentLoadingDefault() {
     this.loading = this.loadingCtrl.create({
-      content: 'Initialize state...'
+      content: 'Loading products...'
     });
   }
 

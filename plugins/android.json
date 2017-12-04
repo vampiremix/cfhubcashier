@@ -16,6 +16,9 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
+        "cordova-plugin-printer": {
+            "PACKAGE_NAME": "com.cyber.coffeehubcashier"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
@@ -34,7 +37,7 @@
         "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         },
-        "cordova-plugin-printer": {
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.cyber.coffeehubcashier"
         }
     },

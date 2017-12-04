@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Events, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Events, AlertController, ToastController, ModalController, ViewController } from 'ionic-angular';
 import { OrdersProvider } from '../../providers/orders/orders';
 import { promoArray } from '../../models/promotions.model';
 import { PromotionsProvider } from '../../providers/promotions/promotions';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { Printer, PrintOptions } from '@ionic-native/printer';
 import { OrdersModel } from '../../models/orders.model';
+
+import { Printer, PrintOptions } from '@ionic-native/printer';
 
 /**
  * Generated class for the CalculatePage page.
@@ -26,8 +27,11 @@ export class CalculatePage {
   public discount = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  public useOrder: OrdersModel = new OrdersModel();
+  // public useOrder: OrdersModel = new OrdersModel() ;
+  public useOrder;
+
   constructor(public navCtrl: NavController,
+    public viewCtrl: ViewController,
     public navParams: NavParams,
     private ordersPVD: OrdersProvider,
     public loadingCtrl: LoadingController,
@@ -35,8 +39,9 @@ export class CalculatePage {
     public alertCtrl: AlertController,
     private promotionsPVD: PromotionsProvider,
     private barcodeScanner: BarcodeScanner,
-    private printer: Printer,
     public toastCtrl: ToastController,
+    public slipmodalCtrl: ModalController,
+    private printer: Printer,
 
   ) {
 
@@ -90,6 +95,8 @@ export class CalculatePage {
 
   calculatePayment() {
     let loading = this.loadingCtrl.create();
+    let productItems;
+    loading.present();
     if (this.cashReceive == '0') {
       loading.dismiss();
       alert('Please recieve money from customer!');
@@ -100,18 +107,93 @@ export class CalculatePage {
       // Send Total amount , cash from cus , cash change
       let cashChange = parseInt(this.cashReceive) - this.total;
       // console.log("total : " + this.total + "\n cash : " + this.cashReceive + "\n cashChange : " + cashChange);
-      this.ordersPVD.preparingOrders(this.sumProduct, this.discount, this.total, this.cashReceive, cashChange, this.getpromotion).then((data) => {
-        loading.dismiss();
-        this.useOrder = data;
-        console.log("TEST : ", this.useOrder);
-        this.printSlipOrder();
-      }
+      let shop = JSON.parse(window.localStorage.getItem('shop'));
+      this.ordersPVD.preparingOrders(this.sumProduct, this.discount, this.total, this.cashReceive, cashChange, this.getpromotion).then((OrderData) => {
+        // Send param 4 set 1.sumProduct(not include vat and promotion), 2. total(sumproduct include vat and promotion),
+        // 3.cashReceive(money from customer), 4.cashChange(summery of total- cash), 5. promotion
+        this.ordersPVD.createOrder(shop._id, OrderData).then((data) => {
+          loading.dismiss();
+          this.useOrder = data;
+          // alert("Slip : " + JSON.stringify(this.useOrder.items));
+          let d = new Date(this.useOrder.date);
+          let dateOrder = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes();
+          for (var i = 0; i < this.useOrder.items.length; i++) {
+            let theme = `<tr>
+            <td style="width:70%">`+ this.useOrder.items[i].product.name + `</td>
+            <td style="width:5%; text-align:center;">`+ this.useOrder.items[i].qty + `</td>
+            <td style="width:25%; text-align:right;">`+ this.useOrder.items[i].selectedPrice.netprice + `</td>
+          </tr>`
+            productItems += theme
+          }
+          // alert("Product item : " + productItems);
+          let printSlip = `<table style="width:40%" border="0" cellspacing="0" cellpadding="0">
+          <tr><td colspan="3" style="text-align:center;"><img src="`+ shop.logo + `" style="width:40%; height:auto; filter: grayscale(100%);"></td></tr>
+<tr>
+  <th colspan="3" style="text-align:center;">Receipt</th>
+</tr>
+<tr>
+  <td colspan="3" style="text-align:center;">`+ this.useOrder.shopName + `</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:center;">Queue : `+ this.useOrder.queue + `</td>
+</tr>
+<tr>
+  <td colspan="2">Receipt No. : `+ this.useOrder.receiptNo + `</td>
+  <td></td>
+</tr>
+<tr>
+  <td colspan="2">Date : `+ dateOrder + `</td>
+  <td></td>
+</tr>
+<tr>
+  <td colspan="2">Customer : `+ this.useOrder.customer + `</td>
+  <td></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:center;">=================================</td>
+</tr>
+<tr>
+<td style="width:70%"><b>Products :</b></td>
+<td style="width:5%;text-align:center;"><b>Qty</b></td>
+<td style="width:25%;text-align:right;"><b>Price</b></td>
+</tr>
+`+
+            productItems
+            + `
+<tr>
+<td colspan="3" style="text-align:center;">=================================</td>
+</tr>
+<tr>
+  <td>Sub total : </td>
+  <td></td>
+  <td style="text-align:right">`+ this.useOrder.amount + `</td>
+</tr>
+<tr>
+  <td>Discount : </td>
+  <td></td>
+  <td style="text-align:right">`+ (this.useOrder.discount || 0) + `</td>
+</tr>
+<tr>
+  <td>Total : </td>
+  <td></td>
+  <td style="text-align:right">`+ this.useOrder.netamount + `</td>
+</tr>
+<tr>
+  <td colspan="2">Receive : Cash : `+ this.useOrder.cash + `</td>
+  <td style="text-align:right">`+ this.useOrder.change + `</td>
+</tr>
+<tr>
+  <td colspan="3" style="text-align:center;">=================================</td>
+</tr>
+<tr>
+  <td colspan="3" style="text-align:center;">Thank you.</td>
+</tr>
+</table>`;
 
-      );
-      // Send param 4 set 1.sumProduct(not include vat and promotion), 2. total(sumproduct include vat and promotion),
-      // 3.cashReceive(money from customer), 4.cashChange(summery of total- cash), 5. promotion
-
-      // this.navCtrl.push(ReceiptPage);
+          // this.printSlipOrder(printSlip);
+          this.printSlipOrder(printSlip);
+        }, (err) => { alert("Error create order : " + err); loading.dismiss(); });
+      });
     }
   }
 
@@ -146,7 +228,7 @@ export class CalculatePage {
   }
 
   clickNum(num) {
-    if (this.cashReceive == "0" && num != "0" && num != "00" && this.cashReceive.length == 1) {
+    if (this.cashReceive == "0" && num !== "0" && num !== "00" && this.cashReceive.length == 1) {
       this.cashReceive = num;
     } else if (this.cashReceive.length >= 1) {
       this.cashReceive += num;
@@ -217,48 +299,72 @@ export class CalculatePage {
     // alert.present();
   }
 
-  printSlipOrder() {
-    let printSlip = document.getElementById('print');
-    // console.log(test);
-    let options: PrintOptions = {
-      name: 'Slip',
-      printerId: '',
-      duplex: true,
-      landscape: false,
-      grayscale: true
-    };
+  // printSlipOrder(slip) {
 
-    this.printer.check().then((data) => {
-      // alert("OK : " + JSON.stringify(data));
-      this.printer.print(printSlip, options).then((onSuccess) => {
-        let toast = this.toastCtrl.create({
-          message: 'Slip printed!',
-          duration: 3000,
-          position: 'middle',
-          cssClass: 'toasttextcenter'
+  //   this.printer.check().then((data) => {
+  //     // this.printer.pick().then((select) => {
+  //     //   alert("Printer Selected : " + select);
+  //     // }), (err) => { alert("Pick printer Error : " + err); }
+  //     if (data) {
+  //       // alert("OK : " + JSON.stringify(data));
+  //       let options: PrintOptions = {
+  //         name: 'Slip',
+  //         printerId: '',
+  //         duplex: true,
+  //         landscape: false,
+  //         grayscale: true
+  //       };
+  //       this.printer.print(slip, options).then((onSuccess) => {
+  //         let toast = this.toastCtrl.create({
+  //           message: 'Slip printed!',
+  //           duration: 3000,
+  //           position: 'middle',
+  //           cssClass: 'toasttextcenter'
+  //         });
+  //         toast.present();
+  //       }, (onError) => {
+  //         // alert("PRINT : " + printSlip);
+  //         alert("Error printing slip! : " + onError);
+  //       });
+  //     } else { alert("Print slip erro : No print data.") }
+
+  //   }, (error) => {
+  //     alert('Error! : ' + JSON.stringify(error));
+  //   });
+  // }
+
+
+  printSlipOrder(slip) {
+    
+        this.printer.check().then((data) => {
+          // this.printer.pick().then((select) => {
+          //   alert("Printer Selected : " + select);
+          // }), (err) => { alert("Pick printer Error : " + err); }
+          if (data) {
+            // alert("OK : " + JSON.stringify(data));
+            let options: PrintOptions = {
+              name: 'Slip',
+              printerId: 'http://192.168.3.56:9100',
+              duplex: true,
+              landscape: false,
+              grayscale: true
+            };
+            this.printer.print(slip, options).then((onSuccess) => {
+              let toast = this.toastCtrl.create({
+                message: 'Slip printed!',
+                duration: 3000,
+                position: 'middle',
+                cssClass: 'toasttextcenter'
+              });
+              toast.present();
+            }, (onError) => {
+              // alert("PRINT : " + printSlip);
+              alert("Error printing slip! : " + onError);
+            });
+          } else { alert("Print slip erro : No print data.") }
+    
+        }, (error) => {
+          alert('Error! : ' + JSON.stringify(error));
         });
-        toast.present();
       }
-        , (onError) => {
-          alert("Error printing slip!");
-        });
-    }, (error) => {
-      alert('Error ' + JSON.stringify(error));
-    });
-    // this.printer.isAvailable().then((isOK)=>{alert("OK" + isOK)},(not)=>{alert("NOT! : " + not) });
-    // this.printer.check().then((OnSuc) => {
-    // alert("WWW");
-    // this.printer.pick().then((PickSuc) => { alert("SSS :" + PickSuc) }, (Error) => { alert("Error :" + Error) })
-    // }, (OnRej) => { alert("Err : " + OnRej) });
-    // this.printer.isAvailable().then((onSuccess) => {
-
-
-
-
-    // }, (onError) => { alert("Cannot find printter" + onError) });
-
-
-
-
-  }
 }

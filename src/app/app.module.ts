@@ -18,15 +18,20 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CategoriesProvider } from '../providers/categories/categories';
 import { CameraProvider } from '../providers/camera/camera';
 
-
 import { Camera } from '@ionic-native/camera';
 import { Printer, PrintOptions } from '@ionic-native/printer';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { RouteProvider } from '../providers/route/route';
 import { InitailizeProvider } from '../providers/initailize/initailize';
 
 import { PrintslipComponent } from "../components/printslip/printslip";
 import { SelectCupComponent } from '../components/select-cup/select-cup';
+import { SelectShopComponent } from '../components/select-shop/select-shop';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { LoginPage } from '../pages/login/login';
+import { PrintProvider } from '../providers/print/print';
+import { MenuPage } from '../pages/menu/menu';
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import { SelectCupComponent } from '../components/select-cup/select-cup';
     PreloadImage,
     CalculatePage,
     PrintslipComponent,
-    SelectCupComponent
+    SelectCupComponent,
+    SelectShopComponent,
+    LoginPage
   ],
   imports: [
     HttpModule,
@@ -51,7 +58,9 @@ import { SelectCupComponent } from '../components/select-cup/select-cup';
     PopOverComponent,
     CalculatePage,
     PrintslipComponent,
-    SelectCupComponent
+    SelectCupComponent,
+    SelectShopComponent,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +75,10 @@ import { SelectCupComponent } from '../components/select-cup/select-cup';
     Camera,
     RouteProvider,
     InitailizeProvider,
-    Printer
+    Printer,
+    AuthenticationProvider,
+    PrintProvider,
+    OneSignal
   ]
 })
 export class AppModule { }

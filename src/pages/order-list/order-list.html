@@ -14,102 +14,47 @@
 
 
 <ion-content no-padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="crescent" refreshingText="Refreshing orders..."></ion-refresher-content>
+  </ion-refresher>
   <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col col-4 *ngFor="let item of arr" no-padding>
-        <ion-card no-padding>
+    <ion-row no-padding row-height align-self-start>
+      <ion-col col-4 no-padding *ngFor="let item of orderslist; let i = index">
+        <ion-card no-padding card-shadow>
           <ion-card-header no-padding>
             <ion-row align-items-center>
-              <ion-col>Customer Name</ion-col>
-              <ion-col text-right no-padding><button ion-button icon-right color="org">Make
+              <ion-col>
+                <h2 *ngIf="item.customer">{{item.customer}}</h2>
+                <h2 *ngIf="!item.customer">No customer name</h2>
+              </ion-col>
+              <ion-col text-right no-padding>
+                <button ion-button icon-right class="btnSize" color="org" *ngIf="item.orderStatus == 'create'" (click)="updateOrderStatus(waiting)">Make
                   <ion-icon name="ios-cafe"></ion-icon>
-                </button></ion-col>
+                </button>
+
+                <button ion-button icon-right class="btnSize" color="secondary" *ngIf="item.orderStatus == 'waiting'" (click)="updateOrderStatus(complete)">Complete
+                  <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+                </button>
+              </ion-col>
             </ion-row>
           </ion-card-header>
           <ion-card-content no-padding>
-            <ion-list no-padding>
-              <ion-item no-padding>
-                <ion-row align-items-center no-padding>
-                  <ion-col col-10>
-                    <span>Caramel Milk : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                  </ion-col>
-                  <ion-col col-2 text-right>
-                    60.-
-                  </ion-col>
-                </ion-row>
-              </ion-item>
-
-              <ion-item no-padding>
-                <ion-row align-items-center no-padding>
-                  <ion-col col-10>
-                    <span>Espresso : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                  </ion-col>
-                  <ion-col col-2 text-right>
-                    50.-
-                  </ion-col>
-                </ion-row>
-              </ion-item>
-
-              <ion-item no-padding>
-                <ion-row align-items-center no-padding>
-                  <ion-col col-10>
-                    <span>Mocha : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                  </ion-col>
-                  <ion-col col-2 text-right>
-                    55.-
-                  </ion-col>
-                </ion-row>
-              </ion-item>
-            </ion-list>
+            <!-- <ion-item no-padding > -->
+            <ion-row align-items-center no-padding *ngFor="let prodItem of orderslist[i].items">
+              <ion-col col-8 textOver>
+                <span>{{prodItem.product.name}} </span>
+                <span *ngIf="prodItem.selectedPrice.type">: ({{prodItem.selectedPrice.type}})</span>
+              </ion-col>
+              <ion-col col-2>Qty : {{prodItem.qty}}</ion-col>
+              <ion-col col-2 text-right no-padding>
+                {{prodItem.selectedPrice.netprice}}.-
+              </ion-col>
+            </ion-row>
+            <!-- </ion-item> -->
           </ion-card-content>
         </ion-card>
-        <ion-card>
-            <ion-card-header>
-              <ion-row align-items-center>
-                <ion-col>Customer Name</ion-col>
-                <ion-col text-right no-padding><button ion-button icon-right color="secondary">Complete
-                    <ion-icon name="md-checkmark-circle-outline"></ion-icon>
-                  </button></ion-col>
-              </ion-row>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-list>
-                <ion-item no-padding>
-                  <ion-row align-items-center no-padding>
-                    <ion-col col-10>
-                      <span>Caramel Milk : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                    </ion-col>
-                    <ion-col col-2 text-right>
-                      60.-
-                    </ion-col>
-                  </ion-row>
-                </ion-item>
-  
-                <ion-item no-padding>
-                  <ion-row align-items-center no-padding>
-                    <ion-col col-10>
-                      <span>Espresso : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                    </ion-col>
-                    <ion-col col-2 text-right>
-                      50.-
-                    </ion-col>
-                  </ion-row>
-                </ion-item>
-  
-                <ion-item no-padding>
-                  <ion-row align-items-center no-padding>
-                    <ion-col col-10>
-                      <span>Mocha : </span><span>S</span><span>,</span><span>Reg</span><span>,</span><span>Med</span>
-                    </ion-col>
-                    <ion-col col-2 text-right>
-                      55.-
-                    </ion-col>
-                  </ion-row>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
       </ion-col>
+      <!-- {{orderslist}} -->
     </ion-row>
   </ion-grid>
 </ion-content>

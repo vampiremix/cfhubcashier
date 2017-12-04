@@ -2,18 +2,21 @@ import { ProductsViewModel, priceArrModel } from "./products.model";
 import { promoArray } from "./promotions.model";
 
 export class OrdersModel {
+    orderStatus: string;
     items: Array<itemArray>;
     promotion : promoArray;
+    shopName :string;
     shop: string; //ref Shop
     date: Date;
     amount: number;
     discount: number;
-    net_amount: number;
+    netamount: number;
     receiptNo: string;
     change: number;
+    cupcoin: number;
     cash: number;
     user : string; // ref User who sendOrder to save
-    casheir : string; // ref User roles[admun or operator] 
+    cashier : string; // ref User roles[shopowner or operator] 
     queue : number; 
     created : Date;
     customer : string; // ref User roles[customer]
